@@ -1,4 +1,4 @@
-;///////////////////////////////////////////////////////////////////////////////////////////////////
+﻿;///////////////////////////////////////////////////////////////////////////////////////////////////
 ;//
 ;//   Copyright (c) 2012 Microsoft Corporation. All Rights Reserved.
 ;//
@@ -48,7 +48,7 @@
 
 [DefaultUninstall.nt$ARCH$]
    DelFiles = WFPSamplerCalloutDriver.DriverFiles
-   DelReg   = WFPCalloutClassReg
+   DelReg   = WFPCalloutsClassReg
 
 [DefaultUninstall.nt$ARCH$.Services]
    DelService = %WFPSamplerCalloutDriverServiceName%,0x200                                         ;/// SPSVCINST_STOPSERVICE

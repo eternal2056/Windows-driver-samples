@@ -95,6 +95,7 @@
       <WarningLevel>Level4</WarningLevel>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;UM_NDIS630</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\inc;..\lib;$(SDK_INC_PATH);.\$(IntDir);.\..\lib\$(IntDir)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
     </ClCompile>
     <Midl>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;UM_NDIS630</PreprocessorDefinitions>

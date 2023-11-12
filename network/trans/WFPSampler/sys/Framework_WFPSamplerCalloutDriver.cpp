@@ -477,7 +477,6 @@ NTSTATUS DriverEntry(_In_ PDRIVER_OBJECT pDriverObject,
 {
 	WPP_INIT_TRACING(pDriverObject,
 		pRegistryPath);
-	DbgBreakPoint();
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,

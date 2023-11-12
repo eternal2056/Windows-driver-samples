@@ -110,6 +110,7 @@
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories);..\inc;$(DDK_INC_PATH);$(IFSKIT_INC_PATH)</AdditionalIncludeDirectories>
       <ExceptionHandling>
       </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
     </ClCompile>
     <Midl>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32_LEAN_AND_MEAN;UNICODE;_UNICODE;NDIS630</PreprocessorDefinitions>

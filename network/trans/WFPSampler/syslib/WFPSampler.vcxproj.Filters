@@ -52,8 +52,80 @@
     <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HelperFunctions_ClassifyData.cpp; HelperFunctions_DeferredProcedureCalls.cpp; HelperFunctions_FlowContext.cpp; HelperFunctions_FwpObjects.cpp; HelperFunctions_Headers.cpp; HelperFunctions_InjectionData.cpp; HelperFunctions_NDIS.cpp; HelperFunctions_NetBuffer.cpp; HelperFunctions_PendData.cpp; HelperFunctions_RedirectData.cpp; HelperFunctions_WorkItems.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd">
       <Filter>Header Files</Filter>
     </ClInclude>

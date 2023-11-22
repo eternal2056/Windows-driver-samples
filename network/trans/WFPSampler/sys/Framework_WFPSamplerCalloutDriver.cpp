@@ -477,10 +477,13 @@ NTSTATUS DriverEntry(_In_ PDRIVER_OBJECT pDriverObject,
 {
 	WPP_INIT_TRACING(pDriverObject,
 		pRegistryPath);
+
 #if DBG
+	DbgBreakPoint();
+	DbgPrint("efwefwef");
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> DriverEntry()\n");
 
 #endif /// DBG

@@ -85,7 +85,7 @@
       <WppEnableOutputDirectory>true</WppEnableOutputDirectory>
       <WppModuleName>WFPSamplerCallouts</WppModuleName>
       <WppAddControlGuid>53504657-6D61-6C70-6572-5F496E746572</WppAddControlGuid>
-      <WppTraceFunction>DbgPrintEx(COMPID,LEVEL,MSG,...)</WppTraceFunction>
+      <WppTraceFunction>DbgPrint1Ex(COMPID,LEVEL,MSG,...)</WppTraceFunction>
       <WppSearchString>WPP_INIT_TRACING</WppSearchString>
     </ClCompile>
     <Inf Include=".\WFPSamplerCalloutDriver.inx">
@@ -102,7 +102,7 @@
       <WppEnableOutputDirectory>true</WppEnableOutputDirectory>
       <WppModuleName>WFPSamplerCallouts</WppModuleName>
       <WppAddControlGuid>53504657-6D61-6C70-6572-5F496E746572</WppAddControlGuid>
-      <WppTraceFunction>DbgPrintEx(COMPID,LEVEL,MSG,...)</WppTraceFunction>
+      <WppTraceFunction>DbgPrint1Ex(COMPID,LEVEL,MSG,...)</WppTraceFunction>
       <WppSearchString>WPP_INIT_TRACING</WppSearchString>
     </OtherWpp>
   </ItemGroup>
@@ -210,6 +210,9 @@
     <ClCompile>
       <ExceptionHandling>
       </ExceptionHandling>
+      <WppEnabled>false</WppEnabled>
+      <WppScanConfigurationData>
+      </WppScanConfigurationData>
     </ClCompile>
     <DriverSign>
       <FileDigestAlgorithm>sha256</FileDigestAlgorithm>

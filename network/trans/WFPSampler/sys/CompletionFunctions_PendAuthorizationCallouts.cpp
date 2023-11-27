@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Copyright (c) 2014 Microsoft Corporation.  All Rights Reserved.
 //
@@ -57,11 +57,11 @@
 
 /**
  @private_function="PendAuthorizationCompletionDataDestroy"
- 
+
    Purpose:                                                                                     <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppCompletionData, _Pre_ _Notnull_)
@@ -71,126 +71,126 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Success_(*ppCompletionData == 0)
 VOID PendAuthorizationCompletionDataDestroy(_Inout_ PEND_AUTHORIZATION_COMPLETION_DATA** ppCompletionData,
-                                            _In_ BOOLEAN override)                                         /* FALSE */
+	_In_ BOOLEAN override)                                         /* FALSE */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> PendAuthorizationCompletionDataDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> PendAuthorizationCompletionDataDestroy()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppCompletionData);
-   NT_ASSERT(*ppCompletionData);
 
-   PEND_AUTHORIZATION_COMPLETION_DATA* pCompletionData = *ppCompletionData;
-   KIRQL                               originalIRQL    = PASSIVE_LEVEL;
+	NT_ASSERT(ppCompletionData);
+	NT_ASSERT(*ppCompletionData);
 
-   KeAcquireSpinLock(&(pCompletionData->spinLock),
-                     &originalIRQL);
+	PEND_AUTHORIZATION_COMPLETION_DATA* pCompletionData = *ppCompletionData;
+	KIRQL                               originalIRQL = PASSIVE_LEVEL;
 
-   pCompletionData->refCount--;
+	KeAcquireSpinLock(&(pCompletionData->spinLock),
+		&originalIRQL);
 
-   if(pCompletionData->pClassifyData)
-   {
-      if(!(pCompletionData->performedInline))
-         KrnlHlprClassifyDataDestroyLocalCopy(&(pCompletionData->pClassifyData));
-      else
-      {
-         HLPR_DELETE(pCompletionData->pClassifyData,
-                     WFPSAMPLER_CALLOUT_DRIVER_TAG);
-      }
-   }
+	pCompletionData->refCount--;
 
-   if(pCompletionData->pInjectionData)
-      KrnlHlprInjectionDataDestroy(&(pCompletionData->pInjectionData));
+	if (pCompletionData->pClassifyData)
+	{
+		if (!(pCompletionData->performedInline))
+			KrnlHlprClassifyDataDestroyLocalCopy(&(pCompletionData->pClassifyData));
+		else
+		{
+			HLPR_DELETE(pCompletionData->pClassifyData,
+				WFPSAMPLER_CALLOUT_DRIVER_TAG);
+		}
+	}
 
-   if(pCompletionData->pSendParams)
-   {
-      HLPR_DELETE_ARRAY(pCompletionData->pSendParams->remoteAddress,
-                        WFPSAMPLER_CALLOUT_DRIVER_TAG);
+	if (pCompletionData->pInjectionData)
+		KrnlHlprInjectionDataDestroy(&(pCompletionData->pInjectionData));
 
-      HLPR_DELETE(pCompletionData->pSendParams,
-                  WFPSAMPLER_CALLOUT_DRIVER_TAG);
-   }
+	if (pCompletionData->pSendParams)
+	{
+		HLPR_DELETE_ARRAY(pCompletionData->pSendParams->remoteAddress,
+			WFPSAMPLER_CALLOUT_DRIVER_TAG);
 
-   KeReleaseSpinLock(&(pCompletionData->spinLock),
-                     originalIRQL);
+		HLPR_DELETE(pCompletionData->pSendParams,
+			WFPSAMPLER_CALLOUT_DRIVER_TAG);
+	}
 
-   if(pCompletionData->refCount == 0 ||
-      override)
-   {
-      HLPR_DELETE(*ppCompletionData,
-                  WFPSAMPLER_CALLOUT_DRIVER_TAG);
-   }
+	KeReleaseSpinLock(&(pCompletionData->spinLock),
+		originalIRQL);
+
+	if (pCompletionData->refCount == 0 ||
+		override)
+	{
+		HLPR_DELETE(*ppCompletionData,
+			WFPSAMPLER_CALLOUT_DRIVER_TAG);
+	}
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- PendAuthorizationCompletionDataDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- PendAuthorizationCompletionDataDestroy()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @completion_function="CompletePendAuthorization"
- 
+
    Purpose:                                                                                     <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-Us/Library/Windows/Hardware/FF545018.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 VOID NTAPI CompletePendAuthorization(_In_ VOID* pContext,
-                                     _Inout_ NET_BUFFER_LIST* pNetBufferList,
-                                     _In_ BOOLEAN dispatchLevel)
+	_Inout_ NET_BUFFER_LIST* pNetBufferList,
+	_In_ BOOLEAN dispatchLevel)
 {
-   NT_ASSERT(pContext);
-   NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData);
-   NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData->pClassifyValues);
-   NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData->pClassifyOut);
-   NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData->pFilter);
-   NT_ASSERT(pNetBufferList);
-   NT_ASSERT(NT_SUCCESS(pNetBufferList->Status));
+	NT_ASSERT(pContext);
+	NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData);
+	NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData->pClassifyValues);
+	NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData->pClassifyOut);
+	NT_ASSERT(((PEND_AUTHORIZATION_COMPLETION_DATA*)pContext)->pClassifyData->pFilter);
+	NT_ASSERT(pNetBufferList);
+	NT_ASSERT(NT_SUCCESS(pNetBufferList->Status));
 
-   UNREFERENCED_PARAMETER(dispatchLevel);
+	UNREFERENCED_PARAMETER(dispatchLevel);
 
-   NTSTATUS                            status          = pNetBufferList->Status;
-   PEND_AUTHORIZATION_COMPLETION_DATA* pCompletionData = (PEND_AUTHORIZATION_COMPLETION_DATA*)pContext;
-   UINT32                              layerID         = pCompletionData->pClassifyData->pClassifyValues->layerId;
-   UINT64                              filterID        = pCompletionData->pClassifyData->pFilter->filterId;
+	NTSTATUS                            status = pNetBufferList->Status;
+	PEND_AUTHORIZATION_COMPLETION_DATA* pCompletionData = (PEND_AUTHORIZATION_COMPLETION_DATA*)pContext;
+	UINT32                              layerID = pCompletionData->pClassifyData->pClassifyValues->layerId;
+	UINT64                              filterID = pCompletionData->pClassifyData->pFilter->filterId;
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> CompletePendAuthorization() [Layer: %s][FilterID: %#I64x][NBL->Status: %#x]",
-              KrnlHlprFwpsLayerIDToString(layerID),
-              filterID,
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> CompletePendAuthorization() [Layer: %s][FilterID: %#I64x][NBL->Status: %#x]",
+		KrnlHlprFwpsLayerIDToString(layerID),
+		filterID,
+		status);
 
-   if(status != STATUS_SUCCESS)
-      DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                 DPFLTR_ERROR_LEVEL,
-                 " !!!! CompletePendAuthorization() [status: %#x]\n",
-                 status);
+	if (status != STATUS_SUCCESS)
+		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+			DPFLTR_ERROR_LEVEL,
+			" !!!! CompletePendAuthorization() [status: %#x]\n",
+			status);
 
-   FwpsFreeCloneNetBufferList(pNetBufferList,
-                              0);
+	FwpsFreeCloneNetBufferList(pNetBufferList,
+		0);
 
-   PendAuthorizationCompletionDataDestroy(&pCompletionData);
+	PendAuthorizationCompletionDataDestroy(&pCompletionData);
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- CompletePendAuthorization() [Layer: %s][FilterID: %#I64x][NBL->Status: %#x]",
-              KrnlHlprFwpsLayerIDToString(layerID),
-              filterID,
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- CompletePendAuthorization() [Layer: %s][FilterID: %#I64x][NBL->Status: %#x]",
+		KrnlHlprFwpsLayerIDToString(layerID),
+		filterID,
+		status);
 
-   return;
+	return;
 }

@@ -57,52 +57,52 @@ VOID LogFlags(_In_ UINT32 flags)
 {
 	if (flags & FWP_CONDITION_FLAG_IS_LOOPBACK)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_LOOPBACK");
 
 	if (flags & FWP_CONDITION_FLAG_IS_IPSEC_SECURED)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_IPSEC_SECURED");
 
 	if (flags & FWP_CONDITION_FLAG_IS_REAUTHORIZE)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_REAUTHORIZE");
 
 	if (flags & FWP_CONDITION_FLAG_IS_WILDCARD_BIND)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_WILDCARD_BIND");
 
 	if (flags & FWP_CONDITION_FLAG_IS_RAW_ENDPOINT)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_RAW_ENDPOINT");
 
 	if (flags & FWP_CONDITION_FLAG_IS_FRAGMENT)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_FRAGMENT");
 
 	if (flags & FWP_CONDITION_FLAG_IS_FRAGMENT_GROUP)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_FRAGMENT_GROUP");
 
 	if (flags & FWP_CONDITION_FLAG_IS_IPSEC_NATT_RECLASSIFY)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_IPSEC_NATT_RECLASSIFY");
 
 	if (flags & FWP_CONDITION_FLAG_REQUIRES_ALE_CLASSIFY)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_REQUIRES_ALE_CLASSIFY");
 
 	if (flags & FWP_CONDITION_FLAG_IS_IMPLICIT_BIND)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_IMPLICIT_BIND");
 
 
@@ -110,7 +110,7 @@ VOID LogFlags(_In_ UINT32 flags)
 
 	if (flags & FWP_CONDITION_FLAG_IS_REASSEMBLED)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_REASSEMBLED");
 
 
@@ -118,37 +118,37 @@ VOID LogFlags(_In_ UINT32 flags)
 
 	if (flags & FWP_CONDITION_FLAG_IS_NAME_APP_SPECIFIED)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_NAME_APP_SPECIFIED");
 
 	if (flags & FWP_CONDITION_FLAG_IS_PROMISCUOUS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_PROMISCUOUS");
 
 	if (flags & FWP_CONDITION_FLAG_IS_AUTH_FW)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_AUTH_FW");
 
 	if (flags & FWP_CONDITION_FLAG_IS_RECLASSIFY)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_RECLASSIFY");
 
 	if (flags & FWP_CONDITION_FLAG_IS_OUTBOUND_PASS_THRU)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_OUTBOUND_PASS_THRU");
 
 	if (flags & FWP_CONDITION_FLAG_IS_INBOUND_PASS_THRU)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_INBOUND_PASS_THRU");
 
 	if (flags & FWP_CONDITION_FLAG_IS_CONNECTION_REDIRECTED)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_CONNECTION_REDIRECTED");
 
 
@@ -156,27 +156,27 @@ VOID LogFlags(_In_ UINT32 flags)
 
 	if (flags & FWP_CONDITION_FLAG_IS_PROXY_CONNECTION)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_PROXY_CONNECTION");
 
 	if (flags & FWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_APPCONTAINER_LOOPBACK");
 
 	if (flags & FWP_CONDITION_FLAG_IS_NON_APPCONTAINER_LOOPBACK)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_NON_APPCONTAINER_LOOPBACK");
 
 	if (flags & FWP_CONDITION_FLAG_IS_RESERVED)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_RESERVED");
 
 	if (flags & FWP_CONDITION_FLAG_IS_HONORING_POLICY_AUTHORIZE)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_FLAG_IS_HONORING_POLICY_AUTHORIZE");
 
 #endif /// (NTDDI_VERSION >= NTDDI_WIN8)
@@ -202,42 +202,42 @@ VOID LogL2Flags(_In_ UINT32 flags)
 
 	if (flags & FWP_CONDITION_L2_IS_NATIVE_ETHERNET)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_NATIVE_ETHERNET");
 
 	if (flags & FWP_CONDITION_L2_IS_WIFI)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_WIFI");
 
 	if (flags & FWP_CONDITION_L2_IS_MOBILE_BROADBAND)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_MOBILE_BROADBAND");
 
 	if (flags & FWP_CONDITION_L2_IS_WIFI_DIRECT_DATA)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_WIFI_DIRECT_DATA");
 
 	if (flags & FWP_CONDITION_L2_IS_VM2VM)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_VM2VM");
 
 	if (flags & FWP_CONDITION_L2_IS_MALFORMED_PACKET)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_MALFORMED_PACKET");
 
 	if (flags & FWP_CONDITION_L2_IS_IP_FRAGMENT_GROUP)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IS_IP_FRAGMENT_GROUP");
 
 	if (flags & FWP_CONDITION_L2_IF_CONNECTOR_PRESENT)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\t\t\t\t\tFWP_CONDITION_L2_IF_CONNECTOR_PRESENT");
 	return;
 }
@@ -559,7 +559,7 @@ VOID LogValue(_In_ const FWP_VALUE* pValue,
 
 		if (status == STATUS_SUCCESS)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"%s",
 				pString);
 
@@ -588,7 +588,7 @@ VOID LogValues(_In_reads_(numValues) const FWPS_INCOMING_VALUE* pValues,
 	if (pValues)
 	{
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\tincomingValue:\n");
 
 		for (UINT32 index = 0;
@@ -598,7 +598,7 @@ VOID LogValues(_In_reads_(numValues) const FWPS_INCOMING_VALUE* pValues,
 			BOOLEAN shouldFormat = FALSE;
 
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tvalue: %d : %s\n",
 				index,
 				KrnlHlprFwpValueGetStringForFwpsIncomingValue(layerId,
@@ -646,7 +646,7 @@ VOID LogClassifyValues(_In_ const FWPS_INCOMING_VALUES* pClassifyValues)
 			pClassifyValues->valueCount);
 		if (status == STATUS_SUCCESS)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"%s",
 				pString);
 
@@ -694,7 +694,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (status == STATUS_SUCCESS)
 		{
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"%s",
 				pString);
 
@@ -717,7 +717,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 			if (status == STATUS_SUCCESS)
 			{
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"%s",
 					pString);
 
@@ -729,77 +729,77 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_FLOW_HANDLE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tflowHandle: %#I64x\n",
 				pMetadata->flowHandle);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_IP_HEADER_SIZE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tipHeaderSize: %d\n",
 				pMetadata->ipHeaderSize);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_PROCESS_PATH))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tprocessPath: %s\n",
 				(PSTR)(pMetadata->processPath->data));
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_TOKEN))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\ttoken: %#I64x\n",
 				pMetadata->token);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_PROCESS_ID))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tprocessId: %#I64x\n",
 				pMetadata->processId);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_SYSTEM_FLAGS))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tflags: %#x\n",
 				pMetadata->flags);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_RESERVED))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\treserved: %#I64x\n",
 				pMetadata->reserved);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_SOURCE_INTERFACE_INDEX))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tsourceInterfaceIndex: %d\n",
 				pMetadata->sourceInterfaceIndex);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_DESTINATION_INTERFACE_INDEX))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tdestinationInterfaceIndex: %d\n",
 				pMetadata->destinationInterfaceIndex);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_TRANSPORT_HEADER_SIZE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\ttransportHeaderSize: %d\n",
 				pMetadata->transportHeaderSize);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_COMPARTMENT_ID))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tcompartmentId: %d\n",
 				pMetadata->compartmentId);
 
@@ -818,7 +818,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 			if (status == STATUS_SUCCESS)
 			{
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"%s",
 					pString);
 
@@ -830,21 +830,21 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_PATH_MTU))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tpathMtu: %d\n",
 				pMetadata->pathMtu);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_COMPLETION_HANDLE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tcompletionHandle: %#I64x\n",
 				(UINT64)pMetadata->completionHandle);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_TRANSPORT_ENDPOINT_HANDLE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\ttransportEndpointHandle: %#I64x\n",
 				pMetadata->transportEndpointHandle);
 
@@ -865,7 +865,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 			if (status == STATUS_SUCCESS)
 			{
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"%s",
 					pString);
 
@@ -877,7 +877,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_REMOTE_SCOPE_ID))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tremoteScopeId: %#x\n",
 				pMetadata->remoteScopeId.Value);
 
@@ -892,7 +892,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 				pDirection = "FWP_DIRECTION_INBOUND";
 
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tpacketDirection: %s\n",
 				pDirection);
 		}
@@ -902,37 +902,37 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_PACKET_SYSTEM_CRITICAL))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tpacketSystemCritical\n");
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_FORWARD_LAYER_OUTBOUND_PASS_THRU))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tforwardLayerOutboundPassThru\n");
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_FORWARD_LAYER_INBOUND_PASS_THRU))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tforwardLayerInboundPassThru\n");
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_ALE_CLASSIFY_REQUIRED))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\taleClassifyRequired\n");
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_TRANSPORT_HEADER_INCLUDE_HEADER))
 		{
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\theaderIncludeHeader: %#p\n",
 				pMetadata->headerIncludeHeader);
 
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\theaderIncludeHeaderLength: %d\n",
 				pMetadata->headerIncludeHeaderLength);
 		}
@@ -950,7 +950,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 				pAddrFamily = "AF_INET6";
 
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tdestinationPrefix:\n"
 				"\t\t\t\tPrefix:\n"
 				"\t\t\t\t\tIpv4:\n"
@@ -988,35 +988,35 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_ETHER_FRAME_LENGTH))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tframeLength: %d\n",
 				pMetadata->frameLength);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_PARENT_ENDPOINT_HANDLE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tparentEndpointHandle: %#I64x\n",
 				pMetadata->parentEndpointHandle);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_ICMP_ID_AND_SEQUENCE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\ticmpIdAndSequence: %#x\n",
 				pMetadata->icmpIdAndSequence);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_LOCAL_REDIRECT_TARGET_PID))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tlocalRedirectTargetPID: %#x\n",
 				pMetadata->localRedirectTargetPID);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_ORIGINAL_DESTINATION))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\toriginalDestination: %#p\n",
 				pMetadata->originalDestination);
 
@@ -1025,26 +1025,26 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_REDIRECT_RECORD_HANDLE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tredirectRecords: %#p\n",
 				pMetadata->redirectRecords);
 
 		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_METADATA_FIELD_SUB_PROCESS_TAG))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tsubProcessTag: %#p\n",
 				pMetadata->subProcessTag);
 
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\tCurrentL2MetadataValues: %#x\n",
 			pMetadata->currentL2MetadataValues);
 
 		if (FWPS_IS_L2_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_L2_METADATA_FIELD_ETHERNET_MAC_HEADER_SIZE))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tethernetMacHeaderSize: %d\n",
 				pMetadata->ethernetMacHeaderSize);
 
@@ -1067,7 +1067,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 				WIFIMode = "DOT11_OPERATION_MODE_WFD_CLIENT";
 
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\twiFiOperationMode: %s\n",
 				WIFIMode);
 		}
@@ -1075,28 +1075,28 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_L2_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_L2_METADATA_FIELD_VSWITCH_SOURCE_PORT_ID))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tvSwitchSourcePortId: %#x\n",
 				pMetadata->vSwitchSourcePortId);
 
 		if (FWPS_IS_L2_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_L2_METADATA_FIELD_VSWITCH_SOURCE_NIC_INDEX))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tvSwitchSourceNicIndex: %#x\n",
 				pMetadata->vSwitchSourceNicIndex);
 
 		if (FWPS_IS_L2_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_L2_METADATA_FIELD_VSWITCH_PACKET_CONTEXT))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tvSwitchPacketContext: %#p\n",
 				pMetadata->vSwitchPacketContext);
 
 		if (FWPS_IS_L2_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_L2_METADATA_FIELD_VSWITCH_DESTINATION_PORT_ID))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tvSwitchDestinationPortId: %#x\n",
 				pMetadata->vSwitchDestinationPortId);
 
@@ -1105,7 +1105,7 @@ VOID LogMetadata(_In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata)
 		if (FWPS_IS_L2_METADATA_FIELD_PRESENT(pMetadata,
 			FWPS_L2_METADATA_FIELD_RESERVED))
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\treserved1: %#I64x\n",
 				pMetadata->reserved1);
 
@@ -1193,7 +1193,7 @@ VOID LogFilter(_In_ const FWPS_FILTER* pFilter)
 			pFilter->providerContext);
 		if (status == STATUS_SUCCESS)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"%s",
 				pString);
 
@@ -1253,38 +1253,38 @@ VOID LogClassifyOut(_In_ const FWPS_CLASSIFY_OUT* pClassifyOut)
 			pClassifyOut->rights);
 		if (status == STATUS_SUCCESS)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"%s",
 				pString);
 
 		if (pClassifyOut->rights & FWPS_RIGHT_ACTION_WRITE)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tFWPS_RIGHT_ACTION_WRITE");
 
 
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\tflags: %#x",
 			pClassifyOut->flags);
 
 		if (pClassifyOut->flags & FWPS_CLASSIFY_OUT_FLAG_ABSORB)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tFWPS_CLASSIFY_OUT_FLAG_ABSORB");
 
 		if (pClassifyOut->flags & FWPS_CLASSIFY_OUT_FLAG_BUFFER_LIMIT_REACHED)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tFWPS_CLASSIFY_OUT_FLAG_BUFFER_LIMIT_REACHED");
 
 		if (pClassifyOut->flags & FWPS_CLASSIFY_OUT_FLAG_NO_MORE_DATA)
 			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-				DPFLTR_INFO_LEVEL,
+				DPFLTR_ERROR_LEVEL,
 				"\t\t\tFWPS_CLASSIFY_OUT_FLAG_NO_MORE_DATA");
 
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\t\treserved: %#x",
 			pClassifyOut->reserved);
 
@@ -1312,7 +1312,7 @@ VOID LogEthernetIIHeader(_In_ ETHERNET_II_HEADER* pEthernetIIHeader,
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogEthernetIIHeader()\n");
 
 #endif /// DBG
@@ -1400,7 +1400,7 @@ VOID LogEthernetIIHeader(_In_ ETHERNET_II_HEADER* pEthernetIIHeader,
 
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tEthernet II Header:%s",
 			pString);
 
@@ -1412,7 +1412,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogEthernetIIHeader [status: %#x]\n",
 		status);
 
@@ -1440,7 +1440,7 @@ VOID LogEthernetSNAPHeader(_In_ ETHERNET_SNAP_HEADER* pEthernetSNAPHeader)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogEthernetSNAPHeader()\n");
 
 #endif /// DBG
@@ -1507,7 +1507,7 @@ VOID LogEthernetSNAPHeader(_In_ ETHERNET_SNAP_HEADER* pEthernetSNAPHeader)
 		ntohs(pEthernetSNAPHeader->type));
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tEthernet SNAP Header:%s",
 			pString);
 
@@ -1519,7 +1519,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogEthernetSNAPHeader() [status: %#x]\n",
 		status);
 
@@ -1547,7 +1547,7 @@ VOID LogIPv4Header(_In_ IP_HEADER_V4* pIPv4Header)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogIPv4Header()\n");
 
 #endif /// DBG
@@ -1601,7 +1601,7 @@ VOID LogIPv4Header(_In_ IP_HEADER_V4* pIPv4Header)
 		ntohl((*((UINT32*)pIPv4Header->pDestinationAddress))));
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tIPv4 Header:%s",
 			pString);
 
@@ -1613,7 +1613,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogIPv4Header() [status: %#x]\n",
 		status);
 
@@ -1641,7 +1641,7 @@ VOID LogIPv6Header(_In_ IP_HEADER_V6* pIPv6Header)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogIPv6Header()\n");
 
 #endif /// DBG
@@ -1731,7 +1731,7 @@ VOID LogIPv6Header(_In_ IP_HEADER_V6* pIPv6Header)
 		pIPv6Header->pDestinationAddress[15]);
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tIPv6 Header:%s",
 			pString);
 
@@ -1743,7 +1743,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogIPv6Header [status: %#x]\n",
 		status);
 #else
@@ -1792,7 +1792,7 @@ VOID LogICMPv4Header(_In_ ICMP_HEADER_V4* pICMPv4Header)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogICMPv4Header()\n");
 
 #endif /// DBG
@@ -1825,7 +1825,7 @@ VOID LogICMPv4Header(_In_ ICMP_HEADER_V4* pICMPv4Header)
 		ntohs(pICMPv4Header->checksum));
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tICMPv4 Header:%s",
 			pString);
 
@@ -1837,7 +1837,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogICMPv4Header [status: %#x]\n",
 		status);
 
@@ -1865,7 +1865,7 @@ VOID LogICMPv6Header(_In_ ICMP_HEADER_V6* pICMPv6Header)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogICMPv6Header()\n");
 
 #endif /// DBG
@@ -1898,7 +1898,7 @@ VOID LogICMPv6Header(_In_ ICMP_HEADER_V6* pICMPv6Header)
 		ntohs(pICMPv6Header->checksum));
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tICMPv6 Header:%s",
 			pString);
 
@@ -1910,7 +1910,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogICMPv6Header() [status: %#x]\n",
 		status);
 
@@ -1938,7 +1938,7 @@ VOID LogTCPHeader(_In_ TCP_HEADER* pTCPHeader)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogTCPHeader()\n");
 
 #endif /// DBG
@@ -1998,7 +1998,7 @@ VOID LogTCPHeader(_In_ TCP_HEADER* pTCPHeader)
 		ntohs(pTCPHeader->urgentPointer));
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tTCP Header:%s",
 			pString);
 
@@ -2010,7 +2010,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogTCPHeader() [status: %#x]\n",
 		status);
 
@@ -2038,7 +2038,7 @@ VOID LogUDPHeader(_In_ UDP_HEADER* pUDPHeader)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> LogUDPHeader()\n");
 
 #endif /// DBG
@@ -2073,7 +2073,7 @@ VOID LogUDPHeader(_In_ UDP_HEADER* pUDPHeader)
 		ntohs(pUDPHeader->checksum));
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tUDP Header:%s",
 			pString);
 
@@ -2085,7 +2085,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- LogUDPHeader() [status: %#x]\n",
 		status);
 
@@ -2165,7 +2165,7 @@ VOID PerformBasicPacketExaminationAtInboundMACFrame(_In_ CLASSIFY_DATA* pClassif
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtInboundMACFrame()\n");
 
 #endif /// DBG
@@ -2431,7 +2431,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtInboundMACFrame()\n");
 
 #endif /// DBG
@@ -2458,7 +2458,7 @@ VOID PerformBasicPacketExaminationAtOutboundMACFrame(_In_ CLASSIFY_DATA* pClassi
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtOutboundMACFrame()\n");
 
 #endif /// DBG
@@ -2679,7 +2679,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtOutboundMACFrame()\n");
 
 #endif /// DBG
@@ -2705,7 +2705,7 @@ VOID PerformBasicPacketExaminationAtVSwitchEthernet(_In_ CLASSIFY_DATA* pClassif
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtVSwitchEthernet()\n");
 
 #endif /// DBG
@@ -2878,7 +2878,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtVSwitchEthernet()\n");
 
 #endif /// DBG
@@ -2906,7 +2906,7 @@ VOID PerformBasicPacketExaminationAtVSwitchTransport(_In_ CLASSIFY_DATA* pClassi
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtVSwitchTransport()\n");
 
 #endif /// DBG
@@ -3089,7 +3089,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtVSwitchTransport()\n");
 
 #endif /// DBG
@@ -3116,7 +3116,7 @@ VOID PerformBasicPacketExaminationAtInboundNetwork(_In_ CLASSIFY_DATA* pClassify
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtInboundNetwork()\n");
 
 #endif /// DBG
@@ -3252,7 +3252,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtInboundNetwork()\n");
 
 #endif /// DBG
@@ -3277,7 +3277,7 @@ VOID PerformBasicPacketExaminationAtOutboundNetwork(_In_ CLASSIFY_DATA* pClassif
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtOutboundNetwork()\n");
 
 #endif /// DBG
@@ -3397,7 +3397,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtOutboundNetwork()\n");
 
 #endif /// DBG
@@ -3422,7 +3422,7 @@ VOID PerformBasicPacketExaminationAtForward(_In_ CLASSIFY_DATA* pClassifyData)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtForward()\n");
 
 #endif /// DBG
@@ -3540,7 +3540,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtForward()\n");
 
 #endif /// DBG
@@ -3571,7 +3571,7 @@ VOID PerformBasicPacketExaminationAtInboundTransport(_In_ CLASSIFY_DATA* pClassi
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtInboundTransport()\n");
 
 #endif /// DBG
@@ -3849,7 +3849,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtInboundTransport()\n");
 
 #endif /// DBG
@@ -3880,7 +3880,7 @@ VOID PerformBasicPacketExaminationAtOutboundTransport(_In_ CLASSIFY_DATA* pClass
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtOutboundTransport()\n");
 
 #endif /// DBG
@@ -3995,7 +3995,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtOutboundTransport()\n");
 
 #endif /// DBG
@@ -4031,7 +4031,7 @@ VOID PerformBasicPacketExaminationAtDiscard(_In_ CLASSIFY_DATA* pClassifyData)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtDiscard()\n");
 
 #endif /// DBG
@@ -4311,7 +4311,7 @@ VOID PerformBasicPacketExaminationAtDiscard(_In_ CLASSIFY_DATA* pClassifyData)
 		filterID);
 	if (status == STATUS_SUCCESS)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tDiscard:%s",
 			pString);
 
@@ -4323,7 +4323,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtDiscard()\n");
 
 #endif /// DBG
@@ -4353,7 +4353,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PerformBasicPacketExaminationAtOther()\n");
 
 #endif /// DBG
@@ -4396,7 +4396,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 #endif /// (NTDDI_VERSION >= NTDDI_WIN7)
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		"\tLayer:%s\n",
 		KrnlHlprFwpsLayerIDToString(pClassifyData->pClassifyValues->layerId));
 
@@ -4434,7 +4434,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 				pIOPacket->streamAction);
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tStreamCalloutIOPacket: %s",
 					pString);
 		}
@@ -4515,7 +4515,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tBinding: %s",
 					pString);
 		}
@@ -4578,7 +4578,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tListening: TCP %s",
 					pString);
 		}
@@ -4662,7 +4662,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tReleasing: %s",
 					pString);
 		}
@@ -4743,7 +4743,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tClosing: %s",
 					pString);
 		}
@@ -4861,7 +4861,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tInspecting: %s",
 					pString);
 		}
@@ -4942,7 +4942,7 @@ VOID PerformBasicPacketExaminationAtOther(_In_ CLASSIFY_DATA* pClassifyData)
 
 			if (status == STATUS_SUCCESS)
 				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-					DPFLTR_INFO_LEVEL,
+					DPFLTR_ERROR_LEVEL,
 					"\t\tInspecting: %s",
 					pString);
 		}
@@ -4962,7 +4962,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PerformBasicPacketExaminationAtOther()\n");
 
 #endif /// DBG
@@ -5189,7 +5189,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 #endif /// (NTDDI_VERSION >= NTDDI_WIN8)
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> ClassifyBasicPacketExamination() [Layer: %s][FilterID: %#I64x][Rights: %#x]",
 		KrnlHlprFwpsLayerIDToString(pClassifyValues->layerId),
 		pFilter->filterId,
@@ -5206,6 +5206,35 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 		WFPSAMPLER_CALLOUT_DRIVER_TAG);
 	HLPR_BAIL_ON_ALLOC_FAILURE(pClassifyData,
 		status);
+	//FWPS_STREAM_DATA* streamData = (FWPS_STREAM_DATA*)pNetBufferList;
+////获取流数据io packet的指针
+	FWPS_STREAM_CALLOUT_IO_PACKET* streamPacket = (FWPS_STREAM_CALLOUT_IO_PACKET*)pLayerData;
+	if (streamPacket->streamData != NULL &&
+		streamPacket->streamData->dataLength != 0)
+	{
+		DbgBreakPoint();
+		////得到数据流指针
+		FWPS_STREAM_DATA0* streamBuffer = streamPacket->streamData;
+
+		BYTE* stream = NULL;
+		SIZE_T streamLength = streamBuffer->dataLength;
+		SIZE_T bytesCopied = 0;
+		FwpsCopyStreamDataToBuffer0(
+			streamBuffer,
+			stream,
+			streamLength,
+			&bytesCopied);
+		// 检查 streamData 是否为 NULL
+		DbgPrint("inspect!In MonitorNfNotifyMessage()  streamLength:%d stream:%s",
+			//"flowData->nCurPid",
+			//"flowData->localAddressV4, flowData->localPort",
+			//"flowData->remoteAddressV4, flowData->remotePort",
+			//"flowData->ipProto",
+			streamLength,
+			stream
+		);
+	}
+
 
 	if (pFilter->context & PCPEF_EXAMINE_UNDER_LOCK)
 		KeAcquireSpinLock(&g_bpeSpinLock,
@@ -5219,7 +5248,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 
 	if (pFilter->context & PCPEF_EXAMINE_LAYER_DATA)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tLayerData: %#p",
 			pLayerData);
 
@@ -5327,7 +5356,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 
 	if (pFilter->context & PCPEF_EXAMINE_CLASSIFY_CONTEXT)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tClassifyContext: %#p",
 			pClassifyContext);
 
@@ -5336,7 +5365,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 
 	if (pFilter->context & PCPEF_EXAMINE_FLOW_CONTEXT)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tflowContext: %#I64x",
 			flowContext);
 
@@ -5361,7 +5390,7 @@ HLPR_BAIL_LABEL:
 		pClassifyOut->actionType = FWP_ACTION_CONTINUE;
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- ClassifyBasicPacketExamination() [Layer: %s][FilterID: %#I64x][Action: %#x][Rights: %#x][Absorb: %s]\n",
 		KrnlHlprFwpsLayerIDToString(pClassifyValues->layerId),
 		pFilter->filterId,
@@ -5483,7 +5512,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES* pClas
 		pClassifyValues->layerId == FWPS_LAYER_ALE_FLOW_ESTABLISHED_V6_DISCARD);
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> ClassifyBasicPacketExamination() [Layer: %s][FilterID: %#I64x][Rights: %#x]",
 		KrnlHlprFwpsLayerIDToString(pClassifyValues->layerId),
 		pFilter->filterId,
@@ -5513,7 +5542,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES* pClas
 
 	if (pFilter->context & PCPEF_EXAMINE_LAYER_DATA)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tLayerData: %#p",
 			pLayerData);
 
@@ -5599,7 +5628,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES* pClas
 
 	if (pFilter->context & PCPEF_EXAMINE_FLOW_CONTEXT)
 		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-			DPFLTR_INFO_LEVEL,
+			DPFLTR_ERROR_LEVEL,
 			"\tflowContext: %#I64x",
 			flowContext);
 
@@ -5625,7 +5654,7 @@ HLPR_BAIL_LABEL:
 		pClassifyOut->actionType = FWP_ACTION_CONTINUE;
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- ClassifyBasicPacketExamination() [Layer: %s][FilterID: %#I64x][Action: %#x][Rights: %#x][Absorb: %s]\n",
 		KrnlHlprFwpsLayerIDToString(pClassifyValues->layerId),
 		pFilter->filterId,

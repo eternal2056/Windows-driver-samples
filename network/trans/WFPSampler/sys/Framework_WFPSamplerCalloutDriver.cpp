@@ -61,7 +61,7 @@ NTSTATUS PrvBasicStreamInjectionSerializationListInitialization()
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PrvBasicStreamInjectionSerializationListInitialization()\n");
 
 #endif /// DBG
@@ -83,7 +83,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PrvBasicStreamInjectionSerializationListInitialization() [status: %#x]",
 		status);
 
@@ -107,7 +107,7 @@ NTSTATUS PrvFwpmBfeStateSubscribeChanges()
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PrvFwpmBfeStateSubscribeChanges()\n");
 
 #endif /// DBG
@@ -127,7 +127,7 @@ NTSTATUS PrvFwpmBfeStateSubscribeChanges()
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PrvFwpmBfeStateSubscribeChanges() [status: %#x]\n",
 		status);
 
@@ -155,7 +155,7 @@ NTSTATUS PrvWFPSamplerFwpObjectsAddGlobal(_In_ WFPSAMPLER_DEVICE_DATA * pDeviceD
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PrvWFPSamplerFwpObjectsAddGlobal()\n");
 
 #endif /// DBG
@@ -179,7 +179,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PrvWFPSamplerFwpObjectsAddGlobal() [status: %#x]\n",
 		status);
 
@@ -206,7 +206,7 @@ NTSTATUS PrvWFPSamplerDeviceDataPopulate(_Inout_ WFPSAMPLER_DEVICE_DATA * pDevic
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PrvWFPSamplerDeviceDataPopulate()\n");
 
 #endif /// DBG
@@ -326,7 +326,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PrvWFPSamplerDeviceDataPopulate()\n");
 
 #endif /// DBG
@@ -357,7 +357,7 @@ NTSTATUS PrvDriverDeviceAdd(_In_ WDFDRIVER * pWDFDriver)
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" ---> PrvDriverDeviceAdd()\n");
 
 #endif /// DBG
@@ -452,7 +452,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- PrvDriverDeviceAdd() [status: %#x]\n",
 		status);
 
@@ -530,7 +530,7 @@ HLPR_BAIL_LABEL:
 #if DBG
 
 	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-		DPFLTR_INFO_LEVEL,
+		DPFLTR_ERROR_LEVEL,
 		" <--- DriverEntry() [status: %#x]\n",
 		status);
 

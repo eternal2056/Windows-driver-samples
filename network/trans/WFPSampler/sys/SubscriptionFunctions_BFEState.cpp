@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Copyright (c) 2014 Microsoft Corporation.  All Rights Reserved.
 //
@@ -38,62 +38,62 @@
 
 /**
  @notify_function="SubscriptionBFEStateChangeCallback"
- 
-   Purpose:  Callback, invoked on BFE service state change, which will get or release a handle 
-             to the engine.                                                                     <br>
-                                                                                                <br>
+
+   Purpose:  Callback, invoked on BFE service state change, which will get or release a handle
+			 to the engine.                                                                     <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF550062.aspx             <br>
 */
 _IRQL_requires_(PASSIVE_LEVEL)
 _IRQL_requires_same_
 VOID CALLBACK SubscriptionBFEStateChangeCallback(_Inout_ VOID* pContext,
-                                                 _In_ FWPM_SERVICE_STATE bfeState)
+	_In_ FWPM_SERVICE_STATE bfeState)
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> SubscriptionBFEStateChangeCallback()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> SubscriptionBFEStateChangeCallback()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pContext);
 
-   NTSTATUS                status      = STATUS_SUCCESS;
-   WFPSAMPLER_DEVICE_DATA* pDeviceData = (WFPSAMPLER_DEVICE_DATA*)pContext;
+	NT_ASSERT(pContext);
 
-   switch(bfeState)
-   {
-      case FWPM_SERVICE_RUNNING:
-      {
-         if(pDeviceData->pEngineHandle == 0)
-         {
-            status = KrnlHlprFwpmSessionCreateEngineHandle(&(pDeviceData->pEngineHandle));
-            HLPR_BAIL_ON_FAILURE(status);
-         }
+	NTSTATUS                status = STATUS_SUCCESS;
+	WFPSAMPLER_DEVICE_DATA* pDeviceData = (WFPSAMPLER_DEVICE_DATA*)pContext;
 
-         break;
-      }
-      case FWPM_SERVICE_STOP_PENDING:
-      {
-         KrnlHlprFwpmSessionDestroyEngineHandle(&(pDeviceData->pEngineHandle));
+	switch (bfeState)
+	{
+	case FWPM_SERVICE_RUNNING:
+	{
+		if (pDeviceData->pEngineHandle == 0)
+		{
+			status = KrnlHlprFwpmSessionCreateEngineHandle(&(pDeviceData->pEngineHandle));
+			HLPR_BAIL_ON_FAILURE(status);
+		}
 
-         break;
-      }
-   }
+		break;
+	}
+	case FWPM_SERVICE_STOP_PENDING:
+	{
+		KrnlHlprFwpmSessionDestroyEngineHandle(&(pDeviceData->pEngineHandle));
 
-   HLPR_BAIL_LABEL:
+		break;
+	}
+	}
+
+HLPR_BAIL_LABEL:
 
 #if DBG
 
-      DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                 DPFLTR_INFO_LEVEL,
-                 " <--- SubscriptionBFEStateChangeCallback() [status: %#x]\n",
-                 status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- SubscriptionBFEStateChangeCallback() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return;
+	return;
 }

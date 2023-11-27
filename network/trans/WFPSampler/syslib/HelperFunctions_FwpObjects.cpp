@@ -137,7 +137,7 @@ inline VOID KrnlHlprFwpByteBlobPurgeLocalCopy(_Inout_ FWP_BYTE_BLOB* pBlob)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpByteBlobPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -150,7 +150,7 @@ inline VOID KrnlHlprFwpByteBlobPurgeLocalCopy(_Inout_ FWP_BYTE_BLOB* pBlob)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpByteBlobPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -178,7 +178,7 @@ inline VOID KrnlHlprFwpByteBlobDestroyLocalCopy(_Inout_ FWP_BYTE_BLOB** ppBlob)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpByteBlobDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -194,7 +194,7 @@ inline VOID KrnlHlprFwpByteBlobDestroyLocalCopy(_Inout_ FWP_BYTE_BLOB** ppBlob)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpByteBlobDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -223,7 +223,7 @@ NTSTATUS KrnlHlprFwpByteBlobPopulateLocalCopy(_In_ const FWP_BYTE_BLOB* pOrigina
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpByteBlobPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -257,7 +257,7 @@ NTSTATUS KrnlHlprFwpByteBlobPopulateLocalCopy(_In_ const FWP_BYTE_BLOB* pOrigina
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpByteBlobPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -287,7 +287,7 @@ FWP_BYTE_BLOB* KrnlHlprFwpByteBlobCreateLocalCopy(_In_ const FWP_BYTE_BLOB* pOri
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpByteBlobCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -324,7 +324,7 @@ FWP_BYTE_BLOB* KrnlHlprFwpByteBlobCreateLocalCopy(_In_ const FWP_BYTE_BLOB* pOri
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpByteBlobCreateLocalCopy() [pByteBlob: %#p]\n",
               pByteBlob);
 
@@ -357,7 +357,7 @@ inline VOID KrnlHlprFwpmDisplayDataPurgeLocalCopy(_Inout_ FWPM_DISPLAY_DATA* pDa
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmDisplayDataPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -373,7 +373,7 @@ inline VOID KrnlHlprFwpmDisplayDataPurgeLocalCopy(_Inout_ FWPM_DISPLAY_DATA* pDa
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmDisplayDataPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -401,7 +401,7 @@ inline VOID KrnlHlprFwpmDisplayDataDestroyLocalCopy(_Inout_ FWPM_DISPLAY_DATA** 
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmDisplayDataDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -417,7 +417,7 @@ inline VOID KrnlHlprFwpmDisplayDataDestroyLocalCopy(_Inout_ FWPM_DISPLAY_DATA** 
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmDisplayDataDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -446,7 +446,7 @@ NTSTATUS KrnlHlprFwpmDisplayDataPopulateLocalCopy(_In_ const FWPM_DISPLAY_DATA* 
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmDisplayDataPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -536,7 +536,7 @@ NTSTATUS KrnlHlprFwpmDisplayDataPopulateLocalCopy(_In_ const FWPM_DISPLAY_DATA* 
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmDisplayDataPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -566,7 +566,7 @@ FWPM_DISPLAY_DATA* KrnlHlprFwpmDisplayDataCreateLocalCopy(_In_ const FWPM_DISPLA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmDisplayDataCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -602,7 +602,7 @@ FWPM_DISPLAY_DATA* KrnlHlprFwpmDisplayDataCreateLocalCopy(_In_ const FWPM_DISPLA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmDisplayDataCreateLocalCopy() [pDisplayData: %#p]\n",
               pDisplayData);
 
@@ -635,7 +635,7 @@ inline VOID KrnlHlprFwpmClassifyOptionPurgeLocalCopy(_Inout_ FWPM_CLASSIFY_OPTIO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -649,7 +649,7 @@ inline VOID KrnlHlprFwpmClassifyOptionPurgeLocalCopy(_Inout_ FWPM_CLASSIFY_OPTIO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -677,7 +677,7 @@ inline VOID KrnlHlprFwpmClassifyOptionDestroyLocalCopy(_Inout_ FWPM_CLASSIFY_OPT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -693,7 +693,7 @@ inline VOID KrnlHlprFwpmClassifyOptionDestroyLocalCopy(_Inout_ FWPM_CLASSIFY_OPT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -722,7 +722,7 @@ NTSTATUS KrnlHlprFwpmClassifyOptionPopulateLocalCopy(_In_ const FWPM_CLASSIFY_OP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -750,7 +750,7 @@ NTSTATUS KrnlHlprFwpmClassifyOptionPopulateLocalCopy(_In_ const FWPM_CLASSIFY_OP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -780,7 +780,7 @@ FWPM_CLASSIFY_OPTION* KrnlHlprFwpmClassifyOptionCreateLocalCopy(_In_ const FWPM_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -817,7 +817,7 @@ FWPM_CLASSIFY_OPTION* KrnlHlprFwpmClassifyOptionCreateLocalCopy(_In_ const FWPM_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionCreateLocalCopy() [pOption: %#p]\n",
               pOption);
 
@@ -850,7 +850,7 @@ inline VOID KrnlHlprFwpmClassifyOptionsPurgeLocalCopy(_Inout_ FWPM_CLASSIFY_OPTI
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionsPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -867,7 +867,7 @@ inline VOID KrnlHlprFwpmClassifyOptionsPurgeLocalCopy(_Inout_ FWPM_CLASSIFY_OPTI
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionsPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -895,7 +895,7 @@ inline VOID KrnlHlprFwpmClassifyOptionsDestroyLocalCopy(_Inout_ FWPM_CLASSIFY_OP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionsDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -911,7 +911,7 @@ inline VOID KrnlHlprFwpmClassifyOptionsDestroyLocalCopy(_Inout_ FWPM_CLASSIFY_OP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionsDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -940,7 +940,7 @@ NTSTATUS KrnlHlprFwpmClassifyOptionsPopulateLocalCopy(_In_ const FWPM_CLASSIFY_O
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionsPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -979,7 +979,7 @@ NTSTATUS KrnlHlprFwpmClassifyOptionsPopulateLocalCopy(_In_ const FWPM_CLASSIFY_O
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionsPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -1009,7 +1009,7 @@ FWPM_CLASSIFY_OPTIONS* KrnlHlprFwpmClassifyOptionsCreateLocalCopy(_In_ const FWP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmClassifyOptionsCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -1045,7 +1045,7 @@ FWPM_CLASSIFY_OPTIONS* KrnlHlprFwpmClassifyOptionsCreateLocalCopy(_In_ const FWP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmClassifyOptionsCreateLocalCopy() [pOptions: %#p]\n",
               pOptions);
 
@@ -1080,7 +1080,7 @@ inline VOID KrnlHlprIPsecDoSPOptionsPurgeLocalCopy(_Inout_ IPSEC_DOSP_OPTIONS* p
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprIPsecDoSPOptionsPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -1096,7 +1096,7 @@ inline VOID KrnlHlprIPsecDoSPOptionsPurgeLocalCopy(_Inout_ IPSEC_DOSP_OPTIONS* p
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprIPsecDoSPOptionsPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -1124,7 +1124,7 @@ inline VOID KrnlHlprIPsecDoSPOptionsDestroyLocalCopy(_Inout_ IPSEC_DOSP_OPTIONS*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprIPsecDoSPOptionsDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -1140,7 +1140,7 @@ inline VOID KrnlHlprIPsecDoSPOptionsDestroyLocalCopy(_Inout_ IPSEC_DOSP_OPTIONS*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprIPsecDoSPOptionsDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -1169,7 +1169,7 @@ NTSTATUS KrnlHlprIPsecDoSPOptionsPopulateLocalCopy(_In_ const IPSEC_DOSP_OPTIONS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprIPsecDoSPOptionsPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -1214,7 +1214,7 @@ NTSTATUS KrnlHlprIPsecDoSPOptionsPopulateLocalCopy(_In_ const IPSEC_DOSP_OPTIONS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprIPsecDoSPOptionsPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -1245,7 +1245,7 @@ IPSEC_DOSP_OPTIONS* KrnlHlprIPsecDoSPOptionsCreateLocalCopy(_In_ const IPSEC_DOS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprIPsecDoSPOptionsCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -1281,7 +1281,7 @@ IPSEC_DOSP_OPTIONS* KrnlHlprIPsecDoSPOptionsCreateLocalCopy(_In_ const IPSEC_DOS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprIPsecDoSPOptionsCreateLocalCopy() [pOptions: %#p]\n",
               pOptions);
 
@@ -1316,7 +1316,7 @@ inline VOID KrnlHlprFwpTokenInformationPurgeLocalCopy(_Inout_ FWP_TOKEN_INFORMAT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpTokenInformationPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -1348,7 +1348,7 @@ inline VOID KrnlHlprFwpTokenInformationPurgeLocalCopy(_Inout_ FWP_TOKEN_INFORMAT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpTokenInformationPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -1376,7 +1376,7 @@ inline VOID KrnlHlprFwpTokenInformationDestroyLocalCopy(_Inout_ FWP_TOKEN_INFORM
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpTokenInformationDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -1392,7 +1392,7 @@ inline VOID KrnlHlprFwpTokenInformationDestroyLocalCopy(_Inout_ FWP_TOKEN_INFORM
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpTokenInformationDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -1421,7 +1421,7 @@ NTSTATUS KrnlHlprFwpTokenInformationPopulateLocalCopy(_In_ const FWP_TOKEN_INFOR
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpTokenInformationPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -1596,7 +1596,7 @@ NTSTATUS KrnlHlprFwpTokenInformationPopulateLocalCopy(_In_ const FWP_TOKEN_INFOR
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpTokenInformationPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -1626,7 +1626,7 @@ FWP_TOKEN_INFORMATION* KrnlHlprFwpTokenInformationCreateLocalCopy(_In_ const FWP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpTokenInformationCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -1662,7 +1662,7 @@ FWP_TOKEN_INFORMATION* KrnlHlprFwpTokenInformationCreateLocalCopy(_In_ const FWP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpTokenInformationCreateLocalCopy() [pTokenInfo: %#p]\n",
               pTokenInfo);
 
@@ -3234,7 +3234,7 @@ FWP_VALUE* KrnlHlprFwpValueGetFromFwpsIncomingValues(_In_ const FWPS_INCOMING_VA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpValueGetFromFwpsIncomingValues()\n");
 
 #endif /// DBG
@@ -4368,7 +4368,7 @@ FWP_VALUE* KrnlHlprFwpValueGetFromFwpsIncomingValues(_In_ const FWPS_INCOMING_VA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpValueGetFromFwpsIncomingValues() [pValue: %#p]\n",
               pValue);
 
@@ -4394,7 +4394,7 @@ inline VOID KrnlHlprFwpValuePurgeLocalCopy(_Inout_ FWP_VALUE* pValue)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpValuePurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -4493,7 +4493,7 @@ inline VOID KrnlHlprFwpValuePurgeLocalCopy(_Inout_ FWP_VALUE* pValue)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpValuePurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -4521,7 +4521,7 @@ inline VOID KrnlHlprFwpValueDestroyLocalCopy(_Inout_ FWP_VALUE** ppValue)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpValueDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -4537,7 +4537,7 @@ inline VOID KrnlHlprFwpValueDestroyLocalCopy(_Inout_ FWP_VALUE** ppValue)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpValueDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -4566,7 +4566,7 @@ NTSTATUS KrnlHlprFwpValuePopulateLocalCopy(_In_ const FWP_VALUE* pOriginalValue,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpValuePopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -4755,7 +4755,7 @@ NTSTATUS KrnlHlprFwpValuePopulateLocalCopy(_In_ const FWP_VALUE* pOriginalValue,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpValuePopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -4785,7 +4785,7 @@ FWP_VALUE* KrnlHlprFwpValueCreateLocalCopy(_In_ const FWP_VALUE* pOriginalValue)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpValueCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -4821,7 +4821,7 @@ FWP_VALUE* KrnlHlprFwpValueCreateLocalCopy(_In_ const FWP_VALUE* pOriginalValue)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpValueCreateLocalCopy() [pValue: %#p]\n",
               pValue);
 
@@ -4854,7 +4854,7 @@ inline VOID KrnlHlprFwpV4AddrAndMaskPurgeLocalCopy(_Inout_ FWP_V4_ADDR_AND_MASK*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV4AddrAndMaskPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -4867,7 +4867,7 @@ inline VOID KrnlHlprFwpV4AddrAndMaskPurgeLocalCopy(_Inout_ FWP_V4_ADDR_AND_MASK*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV4AddrAndMaskPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -4895,7 +4895,7 @@ inline VOID KrnlHlprFwpV4AddrAndMaskDestroyLocalCopy(_Inout_ FWP_V4_ADDR_AND_MAS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV4AddrAndMaskDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -4911,7 +4911,7 @@ inline VOID KrnlHlprFwpV4AddrAndMaskDestroyLocalCopy(_Inout_ FWP_V4_ADDR_AND_MAS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV4AddrAndMaskDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -4940,7 +4940,7 @@ NTSTATUS KrnlHlprFwpV4AddrAndMaskPopulateLocalCopy(_In_ const FWP_V4_ADDR_AND_MA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV4AddrAndMaskPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -4956,7 +4956,7 @@ NTSTATUS KrnlHlprFwpV4AddrAndMaskPopulateLocalCopy(_In_ const FWP_V4_ADDR_AND_MA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV4AddrAndMaskPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -4986,7 +4986,7 @@ FWP_V4_ADDR_AND_MASK* KrnlHlprFwpV4AddrAndMaskCreateLocalCopy(_In_ const FWP_V4_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV4AddrAndMaskCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -5022,7 +5022,7 @@ FWP_V4_ADDR_AND_MASK* KrnlHlprFwpV4AddrAndMaskCreateLocalCopy(_In_ const FWP_V4_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV4AddrAndMaskCreateLocalCopy() [pAddrMask: %#p]\n",
               pAddrMask);
 
@@ -5055,7 +5055,7 @@ inline VOID KrnlHlprFwpV6AddrAndMaskPurgeLocalCopy(_Inout_ FWP_V6_ADDR_AND_MASK*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV6AddrAndMaskPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -5068,7 +5068,7 @@ inline VOID KrnlHlprFwpV6AddrAndMaskPurgeLocalCopy(_Inout_ FWP_V6_ADDR_AND_MASK*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV6AddrAndMaskPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -5096,7 +5096,7 @@ inline VOID KrnlHlprFwpV6AddrAndMaskDestroyLocalCopy(_Inout_ FWP_V6_ADDR_AND_MAS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV6AddrAndMaskDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -5112,7 +5112,7 @@ inline VOID KrnlHlprFwpV6AddrAndMaskDestroyLocalCopy(_Inout_ FWP_V6_ADDR_AND_MAS
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV6AddrAndMaskDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -5141,7 +5141,7 @@ NTSTATUS KrnlHlprFwpV6AddrAndMaskPopulateLocalCopy(_In_ const FWP_V6_ADDR_AND_MA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV6AddrAndMaskPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -5160,7 +5160,7 @@ NTSTATUS KrnlHlprFwpV6AddrAndMaskPopulateLocalCopy(_In_ const FWP_V6_ADDR_AND_MA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV6AddrAndMaskPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -5190,7 +5190,7 @@ FWP_V6_ADDR_AND_MASK* KrnlHlprFwpV6AddrAndMaskCreateLocalCopy(_In_ const FWP_V6_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpV6AddrAndMaskCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -5226,7 +5226,7 @@ FWP_V6_ADDR_AND_MASK* KrnlHlprFwpV6AddrAndMaskCreateLocalCopy(_In_ const FWP_V6_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpV6AddrAndMaskCreateLocalCopy() [pAddrMask: %#p]\n",
               pAddrMask);
 
@@ -5259,7 +5259,7 @@ inline VOID KrnlHlprFwpRangePurgeLocalCopy(_Inout_ FWP_RANGE* pRange)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpRangePurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -5273,7 +5273,7 @@ inline VOID KrnlHlprFwpRangePurgeLocalCopy(_Inout_ FWP_RANGE* pRange)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpRangePurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -5301,7 +5301,7 @@ inline VOID KrnlHlprFwpRangeDestroyLocalCopy(_Inout_ FWP_RANGE** ppRange)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpRangeDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -5317,7 +5317,7 @@ inline VOID KrnlHlprFwpRangeDestroyLocalCopy(_Inout_ FWP_RANGE** ppRange)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpRangeDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -5346,7 +5346,7 @@ NTSTATUS KrnlHlprFwpRangePopulateLocalCopy(_In_ const FWP_RANGE* pOriginalRange,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpRangePopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -5372,7 +5372,7 @@ NTSTATUS KrnlHlprFwpRangePopulateLocalCopy(_In_ const FWP_RANGE* pOriginalRange,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpRangePopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -5402,7 +5402,7 @@ FWP_RANGE* KrnlHlprFwpRangeCreateLocalCopy(_In_ const FWP_RANGE* pOriginalRange)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpRangeCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -5443,7 +5443,7 @@ FWP_RANGE* KrnlHlprFwpRangeCreateLocalCopy(_In_ const FWP_RANGE* pOriginalRange)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpRangeCreateLocalCopy() [pRange: %#p]\n",
               pRange);
 
@@ -5476,7 +5476,7 @@ inline VOID KrnlHlprFwpConditionValuePurgeLocalCopy(_Inout_ FWP_CONDITION_VALUE*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpConditionValuePurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -5601,7 +5601,7 @@ inline VOID KrnlHlprFwpConditionValuePurgeLocalCopy(_Inout_ FWP_CONDITION_VALUE*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpConditionValuePurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -5629,7 +5629,7 @@ inline VOID KrnlHlprFwpConditionValueDestroyLocalCopy(_Inout_ FWP_CONDITION_VALU
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpConditionValueDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -5645,7 +5645,7 @@ inline VOID KrnlHlprFwpConditionValueDestroyLocalCopy(_Inout_ FWP_CONDITION_VALU
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpConditionValueDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -5674,7 +5674,7 @@ NTSTATUS KrnlHlprFwpConditionValuePopulateLocalCopy(_In_ const FWP_CONDITION_VAL
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpConditionValuePopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -5900,7 +5900,7 @@ NTSTATUS KrnlHlprFwpConditionValuePopulateLocalCopy(_In_ const FWP_CONDITION_VAL
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpConditionValuePopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -5930,7 +5930,7 @@ FWP_CONDITION_VALUE* KrnlHlprFwpConditionValueCreateLocalCopy(_In_ const FWP_CON
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpConditionValueCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -5966,7 +5966,7 @@ FWP_CONDITION_VALUE* KrnlHlprFwpConditionValueCreateLocalCopy(_In_ const FWP_CON
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpConditionValueCreateLocalCopy() [pConditionValue: %#p]\n",
               pConditionValue);
 
@@ -6002,7 +6002,7 @@ BOOLEAN KrnlHlprFwpsIncomingValueConditionFlagsAreSet(_In_ const FWPS_INCOMING_V
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingValueConditionFlagsAreSet()\n");
 
 #endif /// DBG
@@ -6020,7 +6020,7 @@ BOOLEAN KrnlHlprFwpsIncomingValueConditionFlagsAreSet(_In_ const FWPS_INCOMING_V
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingValueConditionFlagsAreSet()\n");
 
 #endif /// DBG
@@ -6045,7 +6045,7 @@ inline VOID KrnlHlprFwpsIncomingValuesPurgeLocalCopy(_Inout_ FWPS_INCOMING_VALUE
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingValuesPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6065,7 +6065,7 @@ inline VOID KrnlHlprFwpsIncomingValuesPurgeLocalCopy(_Inout_ FWPS_INCOMING_VALUE
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingValuesPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6093,7 +6093,7 @@ inline VOID KrnlHlprFwpsIncomingValuesDestroyLocalCopy(_Inout_ FWPS_INCOMING_VAL
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingValuesDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6109,7 +6109,7 @@ inline VOID KrnlHlprFwpsIncomingValuesDestroyLocalCopy(_Inout_ FWPS_INCOMING_VAL
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingValuesDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6138,7 +6138,7 @@ NTSTATUS KrnlHlprFwpsIncomingValuesPopulateLocalCopy(_In_ const FWPS_INCOMING_VA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingValuesPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -6175,7 +6175,7 @@ NTSTATUS KrnlHlprFwpsIncomingValuesPopulateLocalCopy(_In_ const FWPS_INCOMING_VA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingValuesPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -6205,7 +6205,7 @@ FWPS_INCOMING_VALUES* KrnlHlprFwpsIncomingValuesCreateLocalCopy(_In_ const FWPS_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingValuesCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -6241,7 +6241,7 @@ FWPS_INCOMING_VALUES* KrnlHlprFwpsIncomingValuesCreateLocalCopy(_In_ const FWPS_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingValuesCreateLocalCopy() [pIncomingValues: %#p]\n",
               pIncomingValues);
 
@@ -6274,7 +6274,7 @@ inline VOID KrnlHlprFwpsIncomingMetadataValuesPurgeLocalCopy(_Inout_ FWPS_INCOMI
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingMetadataValuesPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6308,7 +6308,7 @@ inline VOID KrnlHlprFwpsIncomingMetadataValuesPurgeLocalCopy(_Inout_ FWPS_INCOMI
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingMetadataValuesPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6336,7 +6336,7 @@ inline VOID KrnlHlprFwpsIncomingMetadataValuesDestroyLocalCopy(_Inout_ FWPS_INCO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingMetadataValuesDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6352,7 +6352,7 @@ inline VOID KrnlHlprFwpsIncomingMetadataValuesDestroyLocalCopy(_Inout_ FWPS_INCO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingMetadataValuesDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6381,7 +6381,7 @@ NTSTATUS KrnlHlprFwpsIncomingMetadataValuesPopulateLocalCopy(_In_ const FWPS_INC
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingMetadataValuesPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -6619,7 +6619,7 @@ NTSTATUS KrnlHlprFwpsIncomingMetadataValuesPopulateLocalCopy(_In_ const FWPS_INC
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingMetadataValuesPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -6649,7 +6649,7 @@ FWPS_INCOMING_METADATA_VALUES* KrnlHlprFwpsIncomingMetadataValuesCreateLocalCopy
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsIncomingMetadataValuesCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -6685,7 +6685,7 @@ FWPS_INCOMING_METADATA_VALUES* KrnlHlprFwpsIncomingMetadataValuesCreateLocalCopy
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsIncomingMetadataValuesCreateLocalCopy() [pMetadata: %#p]\n",
               pMetadata);
 
@@ -6718,7 +6718,7 @@ inline VOID KrnlHlprFwpsClassifyOutPurgeLocalCopy(_Inout_ FWPS_CLASSIFY_OUT* pOr
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsClassifyOutPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6731,7 +6731,7 @@ inline VOID KrnlHlprFwpsClassifyOutPurgeLocalCopy(_Inout_ FWPS_CLASSIFY_OUT* pOr
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsClassifyOutPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6759,7 +6759,7 @@ VOID KrnlHlprFwpsClassifyOutDestroyLocalCopy(_Inout_ FWPS_CLASSIFY_OUT** ppClass
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsClassifyOutDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6775,7 +6775,7 @@ VOID KrnlHlprFwpsClassifyOutDestroyLocalCopy(_Inout_ FWPS_CLASSIFY_OUT** ppClass
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsClassifyOutDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6802,7 +6802,7 @@ inline VOID KrnlHlprFwpsClassifyOutPopulateLocalCopy(_In_ const FWPS_CLASSIFY_OU
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsClassifyOutPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -6817,7 +6817,7 @@ inline VOID KrnlHlprFwpsClassifyOutPopulateLocalCopy(_In_ const FWPS_CLASSIFY_OU
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsClassifyOutPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -6846,7 +6846,7 @@ FWPS_CLASSIFY_OUT* KrnlHlprFwpsClassifyOutCreateLocalCopy(_In_ const FWPS_CLASSI
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsClassifyOutCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -6876,7 +6876,7 @@ FWPS_CLASSIFY_OUT* KrnlHlprFwpsClassifyOutCreateLocalCopy(_In_ const FWPS_CLASSI
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsClassifyOutCreateLocalCopy() [pClassifyOut: %#p]\n",
               pClassifyOut);
 
@@ -6907,7 +6907,7 @@ inline VOID KrnlHlprFwpsStreamDataPurgeLocalCopy(_Inout_ FWPS_STREAM_DATA* pStre
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamDataPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6933,7 +6933,7 @@ inline VOID KrnlHlprFwpsStreamDataPurgeLocalCopy(_Inout_ FWPS_STREAM_DATA* pStre
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamDataPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -6961,7 +6961,7 @@ inline VOID KrnlHlprFwpsStreamDataDestroyLocalCopy(_Inout_ FWPS_STREAM_DATA** pp
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamDataDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -6977,7 +6977,7 @@ inline VOID KrnlHlprFwpsStreamDataDestroyLocalCopy(_Inout_ FWPS_STREAM_DATA** pp
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamDataDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7006,7 +7006,7 @@ NTSTATUS KrnlHlprFwpsStreamDataPopulateLocalCopy(_In_ const FWPS_STREAM_DATA* pO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamDataPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -7032,7 +7032,7 @@ NTSTATUS KrnlHlprFwpsStreamDataPopulateLocalCopy(_In_ const FWPS_STREAM_DATA* pO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamDataPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -7062,7 +7062,7 @@ FWPS_STREAM_DATA* KrnlHlprFwpsStreamDataCreateLocalCopy(_In_ const FWPS_STREAM_D
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamDataCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -7098,7 +7098,7 @@ FWPS_STREAM_DATA* KrnlHlprFwpsStreamDataCreateLocalCopy(_In_ const FWPS_STREAM_D
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamDataCreateLocalCopy() [pStreamData: %#p]\n",
               pStreamData);
 
@@ -7131,7 +7131,7 @@ inline VOID KrnlHlprFwpsStreamCalloutIOPacketPurgeLocalCopy(_Inout_ FWPS_STREAM_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamCalloutIOPacketPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7146,7 +7146,7 @@ inline VOID KrnlHlprFwpsStreamCalloutIOPacketPurgeLocalCopy(_Inout_ FWPS_STREAM_
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamCalloutIOPacketPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7174,7 +7174,7 @@ inline VOID KrnlHlprFwpsStreamCalloutIOPacketDestroyLocalCopy(_Inout_ FWPS_STREA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamCalloutIOPacketDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7190,7 +7190,7 @@ inline VOID KrnlHlprFwpsStreamCalloutIOPacketDestroyLocalCopy(_Inout_ FWPS_STREA
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamCalloutIOPacketDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7219,7 +7219,7 @@ NTSTATUS KrnlHlprFwpsStreamCalloutIOPacketPopulateLocalCopy(_In_ const FWPS_STRE
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamCalloutIOPacketPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -7246,7 +7246,7 @@ NTSTATUS KrnlHlprFwpsStreamCalloutIOPacketPopulateLocalCopy(_In_ const FWPS_STRE
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamCalloutIOPacketPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -7276,7 +7276,7 @@ FWPS_STREAM_CALLOUT_IO_PACKET* KrnlHlprFwpsStreamCalloutIOPacketCreateLocalCopy(
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsStreamCalloutIOPacketCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -7313,7 +7313,7 @@ FWPS_STREAM_CALLOUT_IO_PACKET* KrnlHlprFwpsStreamCalloutIOPacketCreateLocalCopy(
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsStreamCalloutIOPacketCreateLocalCopy() [pIOPacket: %#p]\n",
               pIOPacket);
 
@@ -7346,7 +7346,7 @@ inline VOID KrnlHlprFwpmProviderContextPurgeLocalCopy(_Inout_ FWPM_PROVIDER_CONT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmProviderContextPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7436,7 +7436,7 @@ inline VOID KrnlHlprFwpmProviderContextPurgeLocalCopy(_Inout_ FWPM_PROVIDER_CONT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmProviderContextPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7466,7 +7466,7 @@ inline VOID KrnlHlprFwpmProviderContextDestroyLocalCopy(_Inout_ FWPM_PROVIDER_CO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmProviderContextDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7482,7 +7482,7 @@ inline VOID KrnlHlprFwpmProviderContextDestroyLocalCopy(_Inout_ FWPM_PROVIDER_CO
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmProviderContextDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7513,7 +7513,7 @@ NTSTATUS KrnlHlprFwpmProviderContextPopulateLocalCopy(_In_ const FWPM_PROVIDER_C
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmProviderContextPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -7626,7 +7626,7 @@ NTSTATUS KrnlHlprFwpmProviderContextPopulateLocalCopy(_In_ const FWPM_PROVIDER_C
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmProviderContextPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -7658,7 +7658,7 @@ FWPM_PROVIDER_CONTEXT* KrnlHlprFwpmProviderContextCreateLocalCopy(_In_ const FWP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmProviderContextCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -7695,7 +7695,7 @@ FWPM_PROVIDER_CONTEXT* KrnlHlprFwpmProviderContextCreateLocalCopy(_In_ const FWP
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmProviderContextCreateLocalCopy() [pProviderContext: %#p]\n",
               pProviderContext);
 
@@ -7726,7 +7726,7 @@ inline VOID KrnlHlprFwpsFilterConditionPurgeLocalCopy(_Inout_ FWPS_FILTER_CONDIT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterConditionPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7743,7 +7743,7 @@ inline VOID KrnlHlprFwpsFilterConditionPurgeLocalCopy(_Inout_ FWPS_FILTER_CONDIT
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterConditionPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7772,7 +7772,7 @@ inline VOID KrnlHlprFwpsFilterConditionDestroyLocalCopy(_Inout_ FWPS_FILTER_COND
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterConditionDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7795,7 +7795,7 @@ inline VOID KrnlHlprFwpsFilterConditionDestroyLocalCopy(_Inout_ FWPS_FILTER_COND
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterConditionDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -7824,7 +7824,7 @@ NTSTATUS KrnlHlprFwpsFilterConditionPopulateLocalCopy(_In_ const FWPS_FILTER_CON
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterConditionPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -7847,7 +7847,7 @@ NTSTATUS KrnlHlprFwpsFilterConditionPopulateLocalCopy(_In_ const FWPS_FILTER_CON
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterConditionPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -7878,7 +7878,7 @@ FWPS_FILTER_CONDITION* KrnlHlprFwpsFilterConditionCreateLocalCopy(_In_reads_(num
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterConditionCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -7923,7 +7923,7 @@ FWPS_FILTER_CONDITION* KrnlHlprFwpsFilterConditionCreateLocalCopy(_In_reads_(num
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterConditionCreateLocalCopy() [pConditions: %#p]\n",
               pConditions);
 
@@ -7954,7 +7954,7 @@ inline VOID KrnlHlprFwpsFilterPurgeLocalCopy(_Inout_ FWPS_FILTER* pFilter)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -7971,7 +7971,7 @@ inline VOID KrnlHlprFwpsFilterPurgeLocalCopy(_Inout_ FWPS_FILTER* pFilter)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterPurgeLocalCopy()\n");
 
 #endif /// DBG
@@ -8001,7 +8001,7 @@ inline VOID KrnlHlprFwpsFilterDestroyLocalCopy(_Inout_ FWPS_FILTER** ppFilter)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -8017,7 +8017,7 @@ inline VOID KrnlHlprFwpsFilterDestroyLocalCopy(_Inout_ FWPS_FILTER** ppFilter)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterDestroyLocalCopy()\n");
 
 #endif /// DBG
@@ -8049,7 +8049,7 @@ NTSTATUS KrnlHlprFwpsFilterPopulateLocalCopy(_In_ const FWPS_FILTER* pOriginalFi
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterPopulateLocalCopy()\n");
 
 #endif /// DBG
@@ -8094,7 +8094,7 @@ NTSTATUS KrnlHlprFwpsFilterPopulateLocalCopy(_In_ const FWPS_FILTER* pOriginalFi
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterPopulateLocalCopy() [status: %#x]\n",
               status);
 
@@ -8126,7 +8126,7 @@ FWPS_FILTER* KrnlHlprFwpsFilterCreateLocalCopy(_In_ const FWPS_FILTER* pOriginal
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsFilterCreateLocalCopy()\n");
 
 #endif /// DBG
@@ -8163,7 +8163,7 @@ FWPS_FILTER* KrnlHlprFwpsFilterCreateLocalCopy(_In_ const FWPS_FILTER* pOriginal
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsFilterCreateLocalCopy() [pFilter: %p]\n",
               pFilter);
 
@@ -8194,7 +8194,7 @@ NTSTATUS KrnlHlprFwpmSessionReleaseHandle(_Inout_ HANDLE* pEngineHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmSessionReleaseHandle()\n");
 
 #endif /// DBG
@@ -8224,7 +8224,7 @@ NTSTATUS KrnlHlprFwpmSessionReleaseHandle(_Inout_ HANDLE* pEngineHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmSessionReleaseHandle() [status: %#x]\n",
               status);
 
@@ -8252,7 +8252,7 @@ VOID KrnlHlprFwpmSessionDestroyEngineHandle(_Inout_ HANDLE** ppEngineHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmSessionDestroyEngineHandle()\n");
 
 #endif /// DBG
@@ -8267,7 +8267,7 @@ VOID KrnlHlprFwpmSessionDestroyEngineHandle(_Inout_ HANDLE** ppEngineHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmSessionDestroyEngineHandle()\n");
 
 #endif /// DBG
@@ -8295,7 +8295,7 @@ NTSTATUS KrnlHlprFwpmSessionAcquireHandle(_Inout_ HANDLE* pEngineHandle,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmSessionAcquireHandle()\n");
 
 #endif /// DBG
@@ -8330,7 +8330,7 @@ NTSTATUS KrnlHlprFwpmSessionAcquireHandle(_Inout_ HANDLE* pEngineHandle,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmSessionAcquireHandle() [status: %#x]\n",
               status);
 
@@ -8360,7 +8360,7 @@ NTSTATUS KrnlHlprFwpmSessionCreateEngineHandle(_Outptr_ HANDLE** ppEngineHandle,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpmSessionCreateEngineHandle()\n");
 
 #endif /// DBG
@@ -8386,7 +8386,7 @@ NTSTATUS KrnlHlprFwpmSessionCreateEngineHandle(_Outptr_ HANDLE** ppEngineHandle,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpmSessionCreateEngineHandle() [status: %#x]\n",
               status);
 
@@ -8418,7 +8418,7 @@ NTSTATUS KrnlHlprFwpsInjectionReleaseHandle(_In_ HANDLE* pInjectionHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsInjectionReleaseHandle()\n");
 
 #endif /// DBG
@@ -8445,7 +8445,7 @@ NTSTATUS KrnlHlprFwpsInjectionReleaseHandle(_In_ HANDLE* pInjectionHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsInjectionReleaseHandle() {status: %#x]\n",
               status);
 
@@ -8474,7 +8474,7 @@ NTSTATUS KrnlHlprFwpsInjectionAcquireHandle(_Inout_ HANDLE* pInjectionHandle,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsInjectionAcquireHandle()\n");
 
 #endif /// DBG
@@ -8495,7 +8495,7 @@ NTSTATUS KrnlHlprFwpsInjectionAcquireHandle(_Inout_ HANDLE* pInjectionHandle,
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsInjectionAcquireHandle() [status: %#x]\n",
               status);
 
@@ -8527,7 +8527,7 @@ VOID KrnlHlprFwpsRedirectHandleDestroy(_In_ HANDLE* pRedirectionHandle)
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsRedirectHandleDestroy()\n");
 
 #endif /// DBG
@@ -8541,7 +8541,7 @@ VOID KrnlHlprFwpsRedirectHandleDestroy(_In_ HANDLE* pRedirectionHandle)
 #if DBG
 
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsRedirectHandleDestroy()\n");
 
 #endif /// DBG
@@ -8567,7 +8567,7 @@ NTSTATUS KrnlHlprFwpsRedirectHandleCreate(_Inout_ HANDLE* pRedirectionHandle) /*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " ---> KrnlHlprFwpsRedirectHandleCreate()\n");
 
 #endif /// DBG
@@ -8588,7 +8588,7 @@ NTSTATUS KrnlHlprFwpsRedirectHandleCreate(_Inout_ HANDLE* pRedirectionHandle) /*
 #if DBG
    
    DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
+              DPFLTR_ERROR_LEVEL,
               " <--- KrnlHlprFwpsRedirectHandleCreate() [status: %#x]\n",
               status);
 

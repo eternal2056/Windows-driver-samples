@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Copyright (c) 2014 Microsoft Corporation.  All Rights Reserved.
 //
@@ -60,11 +60,11 @@
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataPurge"
- 
+
    Purpose:  Cleanup a DPC_DATA object.                                                         <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
@@ -74,35 +74,35 @@ inline VOID KrnlHlprDPCDataPurge(_Inout_ DPC_DATA* pDPCData)
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataPurge()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataPurge()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCData);
+	NT_ASSERT(pDPCData);
 
-   RtlZeroMemory(pDPCData,
-                 sizeof(DPC_DATA));
+	RtlZeroMemory(pDPCData,
+		sizeof(DPC_DATA));
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataPurge()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataPurge()\n");
 
 #endif /// DBG
 
-   return;
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataDestroy"
- 
+
    Purpose:  Cleanup and free a DPC_DATA object.                                                <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppDPCData, _Pre_ _Notnull_)
@@ -115,256 +115,256 @@ inline VOID KrnlHlprDPCDataDestroy(_Inout_ DPC_DATA** ppDPCData)
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataDestroy()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataDestroy()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(ppDPCData);
+	NT_ASSERT(ppDPCData);
 
-   if(*ppDPCData)
-   {
-      KrnlHlprDPCDataPurge(*ppDPCData);
+	if (*ppDPCData)
+	{
+		KrnlHlprDPCDataPurge(*ppDPCData);
 
-      HLPR_DELETE(*ppDPCData,
-                  WFPSAMPLER_SYSLIB_TAG);
-   }
+		HLPR_DELETE(*ppDPCData,
+			WFPSAMPLER_SYSLIB_TAG);
+	}
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataDestroy()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataDestroy()\n");
 
 #endif /// DBG
 
-   return;
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataPopulate"
- 
-   Purpose:  Populates a DPC_DATA object with the classifyData, injectionData, and context 
-             supplied.                                                                          <br>
-                                                                                                <br>
+
+   Purpose:  Populates a DPC_DATA object with the classifyData, injectionData, and context
+			 supplied.                                                                          <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 inline VOID KrnlHlprDPCDataPopulate(_Inout_ DPC_DATA* pDPCData,
-                                    _In_ CLASSIFY_DATA* pClassifyData,
-                                    _In_opt_ INJECTION_DATA* pInjectionData, /* 0 */
-                                    _In_opt_ VOID* pContext)                 /* 0 */
+	_In_ CLASSIFY_DATA* pClassifyData,
+	_In_opt_ INJECTION_DATA* pInjectionData, /* 0 */
+	_In_opt_ VOID* pContext)                 /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pDPCData);
-   NT_ASSERT(pClassifyData);
 
-   pDPCData->pClassifyData  = pClassifyData;
-   pDPCData->pInjectionData = pInjectionData;
-   pDPCData->pContext       = pContext;
+	NT_ASSERT(pDPCData);
+	NT_ASSERT(pClassifyData);
+
+	pDPCData->pClassifyData = pClassifyData;
+	pDPCData->pInjectionData = pInjectionData;
+	pDPCData->pContext = pContext;
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataPopulate"
- 
+
    Purpose:  Populates a DPC_DATA object with the classifyData, pendData, and context supplied. <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 inline VOID KrnlHlprDPCDataPopulate(_Inout_ DPC_DATA* pDPCData,
-                                    _In_ CLASSIFY_DATA* pClassifyData,
-                                    _In_ PEND_DATA* pPendData,
-                                    _In_opt_ VOID* pContext)           /* 0 */
+	_In_ CLASSIFY_DATA* pClassifyData,
+	_In_ PEND_DATA* pPendData,
+	_In_opt_ VOID* pContext)           /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pDPCData);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pPendData);
 
-   pDPCData->pClassifyData = pClassifyData;
-   pDPCData->pPendData     = pPendData;
-   pDPCData->pContext      = pContext;
+	NT_ASSERT(pDPCData);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pPendData);
+
+	pDPCData->pClassifyData = pClassifyData;
+	pDPCData->pPendData = pPendData;
+	pDPCData->pContext = pContext;
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataPopulate"
- 
-   Purpose:  Populates a DPC_DATA object with the classifyData, redirectData, and context 
-             supplied.                                                                          <br>
-                                                                                                <br>
+
+   Purpose:  Populates a DPC_DATA object with the classifyData, redirectData, and context
+			 supplied.                                                                          <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 inline VOID KrnlHlprDPCDataPopulate(_Inout_ DPC_DATA* pDPCData,
-                                    _In_ CLASSIFY_DATA* pClassifyData,
-                                    _In_ REDIRECT_DATA* pRedirectData,
-                                    _In_opt_ VOID* pContext)           /* 0 */
+	_In_ CLASSIFY_DATA* pClassifyData,
+	_In_ REDIRECT_DATA* pRedirectData,
+	_In_opt_ VOID* pContext)           /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pDPCData);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pRedirectData);
 
-   pDPCData->pClassifyData = pClassifyData;
-   pDPCData->pRedirectData = pRedirectData;
-   pDPCData->pContext      = pContext;
+	NT_ASSERT(pDPCData);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pRedirectData);
+
+	pDPCData->pClassifyData = pClassifyData;
+	pDPCData->pRedirectData = pRedirectData;
+	pDPCData->pContext = pContext;
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataPopulate"
- 
+
    Purpose:  Populates a DPC_DATA object with the notifyData and context supplied.              <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 inline VOID KrnlHlprDPCDataPopulate(_Inout_ DPC_DATA* pDPCData,
-                                    _In_ NOTIFY_DATA* pNotifyData,
-                                    _In_opt_ VOID* pContext)       /* 0 */
+	_In_ NOTIFY_DATA* pNotifyData,
+	_In_opt_ VOID* pContext)       /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pDPCData);
-   NT_ASSERT(pNotifyData);
 
-   pDPCData->pNotifyData = pNotifyData;
-   pDPCData->pContext    = pContext;
+	NT_ASSERT(pDPCData);
+	NT_ASSERT(pNotifyData);
+
+	pDPCData->pNotifyData = pNotifyData;
+	pDPCData->pContext = pContext;
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataPopulate"
- 
+
    Purpose:  Populates a DPC_DATA object with the pendData, and context supplied.               <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 inline VOID KrnlHlprDPCDataPopulate(_Inout_ DPC_DATA* pDPCData,
-                                    _In_ PEND_DATA* pPendData,
-                                    _In_opt_ VOID* pContext)    /* 0 */
+	_In_ PEND_DATA* pPendData,
+	_In_opt_ VOID* pContext)    /* 0 */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataPopulate()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCData);
-   NT_ASSERT(pPendData);
+	NT_ASSERT(pDPCData);
+	NT_ASSERT(pPendData);
 
-   pDPCData->pPendData     = pPendData;
-   pDPCData->pContext      = pContext;
+	pDPCData->pPendData = pPendData;
+	pDPCData->pContext = pContext;
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataPopulate()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataPopulate()\n");
 
 #endif /// DBG
 
-   return;
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataCreate"
- 
-   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, classifyData, 
-             injectionData, and context supplied.                                               <br>
-                                                                                                <br>
+
+   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, classifyData,
+			 injectionData, and context supplied.                                               <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppDPCData, _Pre_ _Null_)
@@ -375,61 +375,61 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA** ppDPCData,
-                               _In_ CLASSIFY_DATA* pClassifyData,
-                               _In_opt_ INJECTION_DATA* pInjectionData, /* 0 */
-                               _In_opt_ VOID* pContext)                 /* 0 */
+NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA * *ppDPCData,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_opt_ INJECTION_DATA * pInjectionData, /* 0 */
+	_In_opt_ VOID * pContext)                 /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataCreate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataCreate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppDPCData);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pInjectionData);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(ppDPCData);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pInjectionData);
 
-   HLPR_NEW(*ppDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
-                              status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-   KrnlHlprDPCDataPopulate(*ppDPCData,
-                           pClassifyData,
-                           pInjectionData,
-                           pContext);
+	HLPR_NEW(*ppDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
+		status);
 
-   HLPR_BAIL_LABEL:
+	KrnlHlprDPCDataPopulate(*ppDPCData,
+		pClassifyData,
+		pInjectionData,
+		pContext);
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprDPCDataDestroy(ppDPCData);
+HLPR_BAIL_LABEL:
+
+	if (status != STATUS_SUCCESS)
+		KrnlHlprDPCDataDestroy(ppDPCData);
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataCreate"
- 
-   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, classifyData, pendData, 
-             and context supplied.                                                              <br>
-                                                                                                <br>
+
+   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, classifyData, pendData,
+			 and context supplied.                                                              <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppDPCData, _Pre_ _Null_)
@@ -440,61 +440,61 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA** ppDPCData,
-                               _In_ CLASSIFY_DATA* pClassifyData,
-                               _In_ PEND_DATA* pPendData,
-                               _In_opt_ VOID* pContext)                 /* 0 */
+NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA * *ppDPCData,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_ PEND_DATA * pPendData,
+	_In_opt_ VOID * pContext)                 /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataCreate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataCreate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppDPCData);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pPendData);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(ppDPCData);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pPendData);
 
-   HLPR_NEW(*ppDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
-                              status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-   KrnlHlprDPCDataPopulate(*ppDPCData,
-                           pClassifyData,
-                           pPendData,
-                           pContext);
+	HLPR_NEW(*ppDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
+		status);
 
-   HLPR_BAIL_LABEL:
+	KrnlHlprDPCDataPopulate(*ppDPCData,
+		pClassifyData,
+		pPendData,
+		pContext);
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprDPCDataDestroy(ppDPCData);
+HLPR_BAIL_LABEL:
+
+	if (status != STATUS_SUCCESS)
+		KrnlHlprDPCDataDestroy(ppDPCData);
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataCreate"
- 
-   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, classifyData, 
-             redirectData, and context supplied.                                                <br>
-                                                                                                <br>
+
+   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, classifyData,
+			 redirectData, and context supplied.                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppDPCData, _Pre_ _Null_)
@@ -505,61 +505,61 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA** ppDPCData,
-                               _In_ CLASSIFY_DATA* pClassifyData,
-                               _In_ REDIRECT_DATA* pRedirectData,
-                               _In_opt_ VOID* pContext)                 /* 0 */
+NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA * *ppDPCData,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_ REDIRECT_DATA * pRedirectData,
+	_In_opt_ VOID * pContext)                 /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataCreate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataCreate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppDPCData);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pRedirectData);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(ppDPCData);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pRedirectData);
 
-   HLPR_NEW(*ppDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
-                              status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-   KrnlHlprDPCDataPopulate(*ppDPCData,
-                           pClassifyData,
-                           pRedirectData,
-                           pContext);
+	HLPR_NEW(*ppDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
+		status);
 
-   HLPR_BAIL_LABEL:
+	KrnlHlprDPCDataPopulate(*ppDPCData,
+		pClassifyData,
+		pRedirectData,
+		pContext);
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprDPCDataDestroy(ppDPCData);
+HLPR_BAIL_LABEL:
+
+	if (status != STATUS_SUCCESS)
+		KrnlHlprDPCDataDestroy(ppDPCData);
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataCreate"
- 
-   Purpose:  Allocates and populates a DPC_DATA object with the notifyData, KDPC, and context 
-             supplied.                                                                          <br>
-                                                                                                <br>
+
+   Purpose:  Allocates and populates a DPC_DATA object with the notifyData, KDPC, and context
+			 supplied.                                                                          <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppDPCData, _Pre_ _Null_)
@@ -570,58 +570,58 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA** ppDPCData,
-                               _In_ NOTIFY_DATA* pNotifyData,
-                               _In_opt_ VOID* pContext)                 /* 0 */
+NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA * *ppDPCData,
+	_In_ NOTIFY_DATA * pNotifyData,
+	_In_opt_ VOID * pContext)                 /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataCreate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataCreate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppDPCData);
-   NT_ASSERT(pNotifyData);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(ppDPCData);
+	NT_ASSERT(pNotifyData);
 
-   HLPR_NEW(*ppDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
-                              status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-   KrnlHlprDPCDataPopulate(*ppDPCData,
-                           pNotifyData,
-                           pContext);
+	HLPR_NEW(*ppDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
+		status);
 
-   HLPR_BAIL_LABEL:
+	KrnlHlprDPCDataPopulate(*ppDPCData,
+		pNotifyData,
+		pContext);
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprDPCDataDestroy(ppDPCData);
+HLPR_BAIL_LABEL:
+
+	if (status != STATUS_SUCCESS)
+		KrnlHlprDPCDataDestroy(ppDPCData);
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCDataCreate"
- 
-   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, pendData, and context 
-             supplied.                                                                          <br>
-                                                                                                <br>
+
+   Purpose:  Allocates and populates a DPC_DATA object with the KDPC, pendData, and context
+			 supplied.                                                                          <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppDPCData, _Pre_ _Null_)
@@ -632,505 +632,505 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA** ppDPCData,
-                               _In_ PEND_DATA* pPendData,
-                               _In_opt_ VOID* pContext)       /* 0 */
+NTSTATUS KrnlHlprDPCDataCreate(_Outptr_ DPC_DATA * *ppDPCData,
+	_In_ PEND_DATA * pPendData,
+	_In_opt_ VOID * pContext)       /* 0 */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCDataCreate()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCDataCreate()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(ppDPCData);
-   NT_ASSERT(pPendData);
+	NT_ASSERT(ppDPCData);
+	NT_ASSERT(pPendData);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NTSTATUS status = STATUS_SUCCESS;
 
-   HLPR_NEW(*ppDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
-                              status);
+	HLPR_NEW(*ppDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppDPCData,
+		status);
 
-   KrnlHlprDPCDataPopulate(*ppDPCData,
-                           pPendData,
-                           pContext);
+	KrnlHlprDPCDataPopulate(*ppDPCData,
+		pPendData,
+		pContext);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprDPCDataDestroy(ppDPCData);
+	if (status != STATUS_SUCCESS)
+		KrnlHlprDPCDataDestroy(ppDPCData);
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCDataCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCQueue"
- 
+
    Purpose:  Queue a DPC for later execution at DISPATCH_LEVEL.                                 <br>
-                                                                                                <br>
+																								<br>
    Notes:    Data is expected to be obtained by other means (i.e. LIST_ENTRY)                   <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552130.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                          _In_ UINT32 processorNumber,    /* 0 */
-                          _In_ BOOLEAN forceProcessor)    /* FALSE */
+NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ UINT32 processorNumber,    /* 0 */
+	_In_ BOOLEAN forceProcessor)    /* FALSE */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCQueue()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCQueue()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pDPCFn);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NT_ASSERT(pDPCFn);
 
-   HLPR_NEW(pDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(pDPCData,
-                              status);
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
-   KeInitializeDpc(&(pDPCData->kdpc),
-                   pDPCFn,
-                   0);
+	HLPR_NEW(pDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(pDPCData,
+		status);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	KeInitializeDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   HLPR_BAIL_LABEL:
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
+
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to HLPR_NEW 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCQueue() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }
 
 
 /**
  @kernel_helper_function="KrnlHlprDPCQueue"
- 
+
    Purpose:  Queue a DPC for later execution at DISPATCH_LEVEL.                                 <br>
-                                                                                                <br>
+																								<br>
    Notes:    INJECTION_DATA specific.                                                           <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552130.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                          _In_ CLASSIFY_DATA* pClassifyData,
-                          _In_opt_ INJECTION_DATA* pInjectionData, /* 0 */
-                          _In_opt_ VOID* pContext,                 /* 0 */
-                          _In_ UINT32 processorNumber,             /* 0 */
-                          _In_ BOOLEAN forceProcessor)             /* FALSE */
+NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_opt_ INJECTION_DATA * pInjectionData, /* 0 */
+	_In_opt_ VOID * pContext,                 /* 0 */
+	_In_ UINT32 processorNumber,             /* 0 */
+	_In_ BOOLEAN forceProcessor)             /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pClassifyData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pClassifyData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pClassifyData,
-                                  pInjectionData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pClassifyData,
+		pInjectionData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
-   KeInitializeDpc(&(pDPCData->kdpc),
-                   pDPCFn,
-                   0);
+	KeInitializeDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCQueue"
- 
+
    Purpose:  Queue a DPC for later execution at DISPATCH_LEVEL.                                 <br>
-                                                                                                <br>
+																								<br>
    Notes:    PEND_DATA specific.                                                                <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552130.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                          _In_ CLASSIFY_DATA* pClassifyData,
-                          _In_ PEND_DATA* pPendData,
-                          _In_opt_ VOID* pContext,           /* 0 */
-                          _In_ UINT32 processorNumber,       /* 0 */
-                          _In_ BOOLEAN forceProcessor)       /* FALSE */
+NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_ PEND_DATA * pPendData,
+	_In_opt_ VOID * pContext,           /* 0 */
+	_In_ UINT32 processorNumber,       /* 0 */
+	_In_ BOOLEAN forceProcessor)       /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pPendData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pPendData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pClassifyData,
-                                  pPendData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pClassifyData,
+		pPendData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
-   KeInitializeDpc(&(pDPCData->kdpc),
-                   pDPCFn,
-                   0);
+	KeInitializeDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCQueue"
- 
+
    Purpose:  Queue a DPC for later execution at DISPATCH_LEVEL.                                 <br>
-                                                                                                <br>
+																								<br>
    Notes:    REDIRECT_DATA specific.                                                            <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552130.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                          _In_ CLASSIFY_DATA* pClassifyData,
-                          _In_ REDIRECT_DATA* pRedirectData,
-                          _In_opt_ VOID* pContext,           /* 0 */
-                          _In_ UINT32 processorNumber,       /* 0 */
-                          _In_ BOOLEAN forceProcessor)       /* FALSE */
+NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_ REDIRECT_DATA * pRedirectData,
+	_In_opt_ VOID * pContext,           /* 0 */
+	_In_ UINT32 processorNumber,       /* 0 */
+	_In_ BOOLEAN forceProcessor)       /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCQueue()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pRedirectData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pRedirectData);
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pClassifyData,
-                                  pRedirectData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
-   KeInitializeDpc(&(pDPCData->kdpc),
-                   pDPCFn,
-                   0);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pClassifyData,
+		pRedirectData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	KeInitializeDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   HLPR_BAIL_LABEL:
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
+
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
-   
-      if(status != STATUS_SUCCESS &&
-         pDPCData)
-         KrnlHlprDPCDataDestroy(&pDPCData);
+
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCQueue"
- 
+
    Purpose:  Queue a DPC for later execution at DISPATCH_LEVEL.                                 <br>
-                                                                                                <br>
+																								<br>
    Notes:    NOTIFY_DATA specific.                                                              <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552130.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                          _In_ NOTIFY_DATA* pNotifyData,
-                          _In_opt_ VOID* pContext,        /* 0 */
-                          _In_ UINT32 processorNumber,    /* 0 */
-                          _In_ BOOLEAN forceProcessor)    /* FALSE */
+NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ NOTIFY_DATA * pNotifyData,
+	_In_opt_ VOID * pContext,        /* 0 */
+	_In_ UINT32 processorNumber,    /* 0 */
+	_In_ BOOLEAN forceProcessor)    /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pNotifyData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pNotifyData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pNotifyData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pNotifyData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
-   KeInitializeDpc(&(pDPCData->kdpc),
-                   pDPCFn,
-                   0);
+	KeInitializeDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate
 
-      if(status != STATUS_SUCCESS &&
-         pDPCData)
-         KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprDPCQueue"
- 
+
    Purpose:  Queue a DPC for later execution at DISPATCH_LEVEL.                                 <br>
-                                                                                                <br>
+																								<br>
    Notes:    PEND_DATA specific.                                                                <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552130.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                          _In_ PEND_DATA* pPendData,
-                          _In_opt_ VOID* pContext,        /* 0 */
-                          _In_ UINT32 processorNumber,    /* 0 */
-                          _In_ BOOLEAN forceProcessor)    /* FALSE */
+NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ PEND_DATA * pPendData,
+	_In_opt_ VOID * pContext,        /* 0 */
+	_In_ UINT32 processorNumber,    /* 0 */
+	_In_ BOOLEAN forceProcessor)    /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pPendData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pPendData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pPendData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pPendData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
-   KeInitializeDpc(&(pDPCData->kdpc),
-                   pDPCFn,
-                   0);
+	KeInitializeDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 #endif /// DPC____
@@ -1140,491 +1140,491 @@ NTSTATUS KrnlHlprDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
 
 /**
  @kernel_helper_function="KrnlHlprThreadedDPCQueue"
- 
+
    Purpose:  Queue a threaded DPC for later execution at either PASSIVE_LEVEL or DISPATCH_LEVEL.<br>
-                                                                                                <br>
+																								<br>
    Notes:    Data is expected to be obtained by other means (i.e. LIST_ENTRY)                   <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552166.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                                  _In_ UINT32 processorNumber,    /* 0 */
-                                  _In_ BOOLEAN forceProcessor)    /* FALSE */
+NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ UINT32 processorNumber,    /* 0 */
+	_In_ BOOLEAN forceProcessor)    /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprThreadedDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprThreadedDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
+	NT_ASSERT(pDPCFn);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
 #pragma warning(push)
 #pragma warning(disable: 6014) /// pDPCData will be freed by caller
 
-   HLPR_NEW(pDPCData,
-            DPC_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(pDPCData,
-                              status);
+	HLPR_NEW(pDPCData,
+		DPC_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(pDPCData,
+		status);
 
 #pragma warning(pop)
 
-   KeInitializeThreadedDpc(&(pDPCData->kdpc),
-                           pDPCFn,
-                           0);
+	KeInitializeThreadedDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to HLPR_NEW 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 
 /**
  @kernel_helper_function="KrnlHlprThreadedDPCQueue"
- 
+
    Purpose:  Queue a threaded DPC for later execution at either PASSIVE_LEVEL or DISPATCH_LEVEL.<br>
-                                                                                                <br>
+																								<br>
    Notes:    INJECTION_DATA specific.                                                           <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552166.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                                  _In_ CLASSIFY_DATA* pClassifyData,
-                                  _In_opt_ INJECTION_DATA* pInjectionData, /* 0 */
-                                  _In_opt_ VOID* pContext,                 /* 0 */
-                                  _In_ UINT32 processorNumber,             /* 0 */
-                                  _In_ BOOLEAN forceProcessor)             /* FALSE */
+NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_opt_ INJECTION_DATA * pInjectionData, /* 0 */
+	_In_opt_ VOID * pContext,                 /* 0 */
+	_In_ UINT32 processorNumber,             /* 0 */
+	_In_ BOOLEAN forceProcessor)             /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprThreadedDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprThreadedDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pClassifyData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pClassifyData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
 #pragma warning(push)
 #pragma warning(disable: 6014) /// pDPCData will be freed by caller
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pClassifyData,
-                                  pInjectionData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pClassifyData,
+		pInjectionData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
 #pragma warning(pop)
 
-   KeInitializeThreadedDpc(&(pDPCData->kdpc),
-                           pDPCFn,
-                           0);
+	KeInitializeThreadedDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprThreadedDPCQueue"
- 
+
    Purpose:  Queue a threaded DPC for later execution at either PASSIVE_LEVEL or DISPATCH_LEVEL.<br>
-                                                                                                <br>
+																								<br>
    Notes:    PEND_DATA specific.                                                                <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552166.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                                  _In_ CLASSIFY_DATA* pClassifyData,
-                                  _In_ PEND_DATA* pPendData,
-                                  _In_opt_ VOID* pContext,           /* 0 */
-                                  _In_ UINT32 processorNumber,       /* 0 */
-                                  _In_ BOOLEAN forceProcessor)       /* FALSE */
+NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_ PEND_DATA * pPendData,
+	_In_opt_ VOID * pContext,           /* 0 */
+	_In_ UINT32 processorNumber,       /* 0 */
+	_In_ BOOLEAN forceProcessor)       /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprThreadedDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprThreadedDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pPendData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pPendData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
 #pragma warning(push)
 #pragma warning(disable: 6014) /// pDPCData will be freed by caller
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pClassifyData,
-                                  pPendData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pClassifyData,
+		pPendData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
 #pragma warning(pop)
 
-   KeInitializeThreadedDpc(&(pDPCData->kdpc),
-                           pDPCFn,
-                           0);
+	KeInitializeThreadedDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprThreadedDPCQueue"
- 
+
    Purpose:  Queue a threaded DPC for later execution at either PASSIVE_LEVEL or DISPATCH_LEVEL.<br>
-                                                                                                <br>
+																								<br>
    Notes:    REDIRECT_DATA specific.                                                            <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552166.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                                  _In_ CLASSIFY_DATA* pClassifyData,
-                                  _In_ REDIRECT_DATA* pRedirectData,
-                                  _In_opt_ VOID* pContext,           /* 0 */
-                                  _In_ UINT32 processorNumber,       /* 0 */
-                                  _In_ BOOLEAN forceProcessor)       /* FALSE */
+NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ CLASSIFY_DATA * pClassifyData,
+	_In_ REDIRECT_DATA * pRedirectData,
+	_In_opt_ VOID * pContext,           /* 0 */
+	_In_ UINT32 processorNumber,       /* 0 */
+	_In_ BOOLEAN forceProcessor)       /* FALSE */
 
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprThreadedDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprThreadedDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pClassifyData);
-   NT_ASSERT(pRedirectData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pClassifyData);
+	NT_ASSERT(pRedirectData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
 #pragma warning(push)
 #pragma warning(disable: 6014) /// pDPCData will be freed by caller
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pClassifyData,
-                                  pRedirectData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pClassifyData,
+		pRedirectData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
 #pragma warning(pop)
 
-   KeInitializeThreadedDpc(&(pDPCData->kdpc),
-                           pDPCFn,
-                           0);
+	KeInitializeThreadedDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprThreadedDPCQueue"
- 
+
    Purpose:  Queue a threaded DPC for later execution at either PASSIVE_LEVEL or DISPATCH_LEVEL.<br>
-                                                                                                <br>
+																								<br>
    Notes:    NOTIFY_DATA specific.                                                              <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552166.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                                  _In_ NOTIFY_DATA* pNotifyData,
-                                  _In_opt_ VOID* pContext,        /* 0 */
-                                  _In_ UINT32 processorNumber,    /* 0 */
-                                  _In_ BOOLEAN forceProcessor)    /* FALSE */
+NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ NOTIFY_DATA * pNotifyData,
+	_In_opt_ VOID * pContext,        /* 0 */
+	_In_ UINT32 processorNumber,    /* 0 */
+	_In_ BOOLEAN forceProcessor)    /* FALSE */
 
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprThreadedDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprThreadedDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pNotifyData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pNotifyData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
 #pragma warning(push)
 #pragma warning(disable: 6014) /// pDPCData will be freed by caller
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pNotifyData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pNotifyData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
 #pragma warning(pop)
 
-   KeInitializeThreadedDpc(&(pDPCData->kdpc),
-                           pDPCFn,
-                           0);
+	KeInitializeThreadedDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprThreadedDPCQueue"
- 
+
    Purpose:  Queue a threaded DPC for later execution at either PASSIVE_LEVEL or DISPATCH_LEVEL.<br>
-                                                                                                <br>
+																								<br>
    Notes:    PEND_DATA specific.                                                                <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552166.aspx             <br>
-             HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
+			 HTTP://MSDN.Microsoft.com/En-US/Library/Windows/Hardware/FF552185.aspx             <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE* pDPCFn,
-                                  _In_ PEND_DATA* pPendData,
-                                  _In_opt_ VOID* pContext,        /* 0 */
-                                  _In_ UINT32 processorNumber,    /* 0 */
-                                  _In_ BOOLEAN forceProcessor)    /* FALSE */
+NTSTATUS KrnlHlprThreadedDPCQueue(_In_ KDEFERRED_ROUTINE * pDPCFn,
+	_In_ PEND_DATA * pPendData,
+	_In_opt_ VOID * pContext,        /* 0 */
+	_In_ UINT32 processorNumber,    /* 0 */
+	_In_ BOOLEAN forceProcessor)    /* FALSE */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprThreadedDPCQueue()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprThreadedDPCQueue()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(pDPCFn);
-   NT_ASSERT(pPendData);
+	NT_ASSERT(pDPCFn);
+	NT_ASSERT(pPendData);
 
-   NTSTATUS  status   = STATUS_SUCCESS;
-   DPC_DATA* pDPCData = 0;
+	NTSTATUS  status = STATUS_SUCCESS;
+	DPC_DATA* pDPCData = 0;
 
 #pragma warning(push)
 #pragma warning(disable: 6014) /// pDPCData will be freed by caller
 
-   status = KrnlHlprDPCDataCreate(&pDPCData,
-                                  pPendData,
-                                  pContext);
-   HLPR_BAIL_ON_FAILURE(status);
+	status = KrnlHlprDPCDataCreate(&pDPCData,
+		pPendData,
+		pContext);
+	HLPR_BAIL_ON_FAILURE(status);
 
 #pragma warning(pop)
 
-   KeInitializeThreadedDpc(&(pDPCData->kdpc),
-                           pDPCFn,
-                           0);
+	KeInitializeThreadedDpc(&(pDPCData->kdpc),
+		pDPCFn,
+		0);
 
-   if(forceProcessor)
-      KeSetTargetProcessorDpc(&(pDPCData->kdpc),
-                              (CCHAR)processorNumber);
+	if (forceProcessor)
+		KeSetTargetProcessorDpc(&(pDPCData->kdpc),
+			(CCHAR)processorNumber);
 
-   KeInsertQueueDpc(&(pDPCData->kdpc),
-                    pDPCData,
-                    0);
+	KeInsertQueueDpc(&(pDPCData->kdpc),
+		pDPCData,
+		0);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// pDPCData initialized with call to KrnlHlprDPCDataCreate 
 
-   if(status != STATUS_SUCCESS &&
-      pDPCData)
-      KrnlHlprDPCDataDestroy(&pDPCData);
+	if (status != STATUS_SUCCESS &&
+		pDPCData)
+		KrnlHlprDPCDataDestroy(&pDPCData);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprThreadedDPCQueue() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 #endif /// THREADED_DPC____

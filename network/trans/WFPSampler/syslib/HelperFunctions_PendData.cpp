@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Copyright (c) 2014 Microsoft Corporation.  All Rights Reserved.
 //
@@ -53,11 +53,11 @@
 
 /**
  @kernel_helper_function="KrnlHlprPendDataPurge"
- 
+
    Purpose:  Cleanup a PEND_DATA object.                                                        <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/FF551199.aspx                              <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
@@ -66,74 +66,74 @@ _IRQL_requires_same_
 inline VOID KrnlHlprPendDataPurge(_Inout_ PEND_DATA* pPendData)
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprPendDataPurge()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprPendDataPurge()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pPendData);
+
+	NT_ASSERT(pPendData);
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)
 
-   if(pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
-      pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
-   {
-      if(pPendData->classifyHandle &&
-         pPendData->isPended)
-      {
-         FwpsCompleteClassify(pPendData->classifyHandle,
-                              0,
-                              &(pPendData->classifyOut));
+	if (pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
+		pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
+	{
+		if (pPendData->classifyHandle &&
+			pPendData->isPended)
+		{
+			FwpsCompleteClassify(pPendData->classifyHandle,
+				0,
+				&(pPendData->classifyOut));
 
 
-         FwpsReleaseClassifyHandle(pPendData->classifyHandle);
+			FwpsReleaseClassifyHandle(pPendData->classifyHandle);
 
-         pPendData->classifyHandle = 0;
-         pPendData->pPCPendData    = 0;
-         pPendData->isPended       = FALSE;
-      }
-   }
-   else
+			pPendData->classifyHandle = 0;
+			pPendData->pPCPendData = 0;
+			pPendData->isPended = FALSE;
+		}
+	}
+	else
 
 #endif /// (NTDDI_VERSION >= NTDDI_WIN7)
 
-   {
-      if(pPendData->completionContext &&
-         pPendData->isPended)
-      {
-         FwpsCompleteOperation(pPendData->completionContext,
-                               pPendData->pNBL);
+	{
+		if (pPendData->completionContext &&
+			pPendData->isPended)
+		{
+			FwpsCompleteOperation(pPendData->completionContext,
+				pPendData->pNBL);
 
-         pPendData->completionContext      = 0;
-         pPendData->pNBL                   = 0;
-         pPendData->pPendAuthorizationData = 0;
-         pPendData->isPended               = FALSE;
-      }
-   }
+			pPendData->completionContext = 0;
+			pPendData->pNBL = 0;
+			pPendData->pPendAuthorizationData = 0;
+			pPendData->isPended = FALSE;
+		}
+	}
 
-   RtlZeroMemory(pPendData,
-                 sizeof(PEND_DATA));
+	RtlZeroMemory(pPendData,
+		sizeof(PEND_DATA));
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprPendDataPurge()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprPendDataPurge()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprPendDataDestroy"
- 
+
    Purpose:  Cleanup and free a PEND_DATA object.                                               <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(ppPendData, _Pre_ _Notnull_)
@@ -145,41 +145,41 @@ _Success_(*ppPendData == 0)
 inline VOID KrnlHlprPendDataDestroy(_Inout_ PEND_DATA** ppPendData)
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprPendDataDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprPendDataDestroy()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppPendData);
 
-   if(*ppPendData)
-   {
-      KrnlHlprPendDataPurge(*ppPendData);
+	NT_ASSERT(ppPendData);
 
-      HLPR_DELETE(*ppPendData,
-                  WFPSAMPLER_SYSLIB_TAG);
-   }
+	if (*ppPendData)
+	{
+		KrnlHlprPendDataPurge(*ppPendData);
+
+		HLPR_DELETE(*ppPendData,
+			WFPSAMPLER_SYSLIB_TAG);
+	}
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprPendDataDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprPendDataDestroy()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 /**
  @kernel_helper_function="KrnlHlprPendDataPopulate"
- 
+
    Purpose:  Populates a PEND_DATA object with the completionContext.                           <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref: HTTP://MSDN.Microsoft.com/En-US/Library/ff551199.aspx                              <br>
 */
 _IRQL_requires_min_(PASSIVE_LEVEL)
@@ -187,157 +187,157 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprPendDataPopulate(_Inout_ PEND_DATA* pPendData,
-                                  _In_ const FWPS_INCOMING_VALUES* pClassifyValues,
-                                  _In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata,
-                                  _In_opt_ NET_BUFFER_LIST* pNBL,
-                                  _In_ const FWPS_FILTER* pFilter,
-                                  _In_opt_ VOID* pClassifyContext,                         /* 0 */
-                                  _In_opt_ FWPS_CLASSIFY_OUT* pClassifyOut)                /* 0 */
+NTSTATUS KrnlHlprPendDataPopulate(_Inout_ PEND_DATA * pPendData,
+	_In_ const FWPS_INCOMING_VALUES * pClassifyValues,
+	_In_ const FWPS_INCOMING_METADATA_VALUES * pMetadata,
+	_In_opt_ NET_BUFFER_LIST * pNBL,
+	_In_ const FWPS_FILTER * pFilter,
+	_In_opt_ VOID * pClassifyContext,                         /* 0 */
+	_In_opt_ FWPS_CLASSIFY_OUT * pClassifyOut)                /* 0 */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprPendDataPopulate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprPendDataPopulate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pPendData);
-   NT_ASSERT(pClassifyValues);
-   NT_ASSERT(pMetadata);
-   NT_ASSERT(pFilter);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(pPendData);
+	NT_ASSERT(pClassifyValues);
+	NT_ASSERT(pMetadata);
+	NT_ASSERT(pFilter);
 
-   pPendData->layerID = pClassifyValues->layerId;
+	NTSTATUS status = STATUS_SUCCESS;
+
+	pPendData->layerID = pClassifyValues->layerId;
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)
 
-   if(pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
-      pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
-   {
-      NT_ASSERT(pClassifyContext);
-      NT_ASSERT(pClassifyOut);
+	if (pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
+		pPendData->layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
+	{
+		NT_ASSERT(pClassifyContext);
+		NT_ASSERT(pClassifyOut);
 
-      if(pClassifyContext &&
-         pClassifyOut)
-      {
-         status = FwpsAcquireClassifyHandle(pClassifyContext,
-                                            0,
-                                            &(pPendData->classifyHandle));
-         if(status != STATUS_SUCCESS)
-         {
-            DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                       DPFLTR_ERROR_LEVEL,
-                       " !!!! KrnlHlprPendDataPopulate : FwpsAcquireClassifyHandle() [status: %#x]\n",
-                       status);
-         
-            HLPR_BAIL;
-         }
+		if (pClassifyContext &&
+			pClassifyOut)
+		{
+			status = FwpsAcquireClassifyHandle(pClassifyContext,
+				0,
+				&(pPendData->classifyHandle));
+			if (status != STATUS_SUCCESS)
+			{
+				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+					DPFLTR_ERROR_LEVEL,
+					" !!!! KrnlHlprPendDataPopulate : FwpsAcquireClassifyHandle() [status: %#x]\n",
+					status);
 
-         status = FwpsPendClassify(pPendData->classifyHandle,
-                                   pFilter->filterId,
-                                   0,
-                                   pClassifyOut);
-         if(status != STATUS_SUCCESS)
-         {
-            DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                       DPFLTR_ERROR_LEVEL,
-                       " !!!! KrnlHlprPendDataPopulate : FwpsPendClassify() [status: %#x]\n",
-                       status);
-         
-            HLPR_BAIL;
-         }
+				HLPR_BAIL;
+			}
 
-         RtlCopyMemory(&(pPendData->classifyOut),
-                       pClassifyOut,
-                       sizeof(FWPS_CLASSIFY_OUT));
+			status = FwpsPendClassify(pPendData->classifyHandle,
+				pFilter->filterId,
+				0,
+				pClassifyOut);
+			if (status != STATUS_SUCCESS)
+			{
+				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+					DPFLTR_ERROR_LEVEL,
+					" !!!! KrnlHlprPendDataPopulate : FwpsPendClassify() [status: %#x]\n",
+					status);
 
-         pPendData->pPCPendData = pFilter->providerContext->dataBuffer->data;
-         pPendData->isPended    = TRUE;
-      }
-      else
-      {
-         status = STATUS_INVALID_PARAMETER;
+				HLPR_BAIL;
+			}
 
-         DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                    DPFLTR_ERROR_LEVEL,
-                    " !!!! KrnlHlprPendDataPopulate : [status: %#x][pClassifyContext: %#p][pClassifyOut: %#p]\n",
-                    status,
-                    pClassifyContext,
-                    pClassifyOut);
+			RtlCopyMemory(&(pPendData->classifyOut),
+				pClassifyOut,
+				sizeof(FWPS_CLASSIFY_OUT));
 
-         HLPR_BAIL;
-      }
-   }
-   else
+			pPendData->pPCPendData = pFilter->providerContext->dataBuffer->data;
+			pPendData->isPended = TRUE;
+		}
+		else
+		{
+			status = STATUS_INVALID_PARAMETER;
+
+			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+				DPFLTR_ERROR_LEVEL,
+				" !!!! KrnlHlprPendDataPopulate : [status: %#x][pClassifyContext: %#p][pClassifyOut: %#p]\n",
+				status,
+				pClassifyContext,
+				pClassifyOut);
+
+			HLPR_BAIL;
+		}
+	}
+	else
 
 #else
 
-   UNREFERENCED_PARAMETER(pClassifyContext);
-   UNREFERENCED_PARAMETER(pClassifyOut);
+	UNREFERENCED_PARAMETER(pClassifyContext);
+	UNREFERENCED_PARAMETER(pClassifyOut);
 
 #endif /// (NTDDI_VERSION >= NTDDI_WIN7)
 
-   {
+	{
 
 
-      if(FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
-                                        FWPS_METADATA_FIELD_COMPLETION_HANDLE))
-      {
-         status = FwpsPendOperation(pMetadata->completionHandle,
-                                    &(pPendData->completionContext));
-         if(status != STATUS_SUCCESS)
-         {
-            DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                       DPFLTR_ERROR_LEVEL,
-                       " !!!! KrnlHlprPendDataPopulate : FwpsPendOperation() [status: %#x]\n",
-                       status);
+		if (FWPS_IS_METADATA_FIELD_PRESENT(pMetadata,
+			FWPS_METADATA_FIELD_COMPLETION_HANDLE))
+		{
+			status = FwpsPendOperation(pMetadata->completionHandle,
+				&(pPendData->completionContext));
+			if (status != STATUS_SUCCESS)
+			{
+				DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+					DPFLTR_ERROR_LEVEL,
+					" !!!! KrnlHlprPendDataPopulate : FwpsPendOperation() [status: %#x]\n",
+					status);
 
-            HLPR_BAIL;
-         }
+				HLPR_BAIL;
+			}
 
-         pPendData->pNBL        = pNBL;
-         pPendData->pPCPendData = pFilter->providerContext->dataBuffer->data;
-         pPendData->isPended    = TRUE;
-      }
-      else
-      {
-         status = STATUS_INVALID_HANDLE;
+			pPendData->pNBL = pNBL;
+			pPendData->pPCPendData = pFilter->providerContext->dataBuffer->data;
+			pPendData->isPended = TRUE;
+		}
+		else
+		{
+			status = STATUS_INVALID_HANDLE;
 
-         DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                    DPFLTR_ERROR_LEVEL,
-                    " !!!! KrnlHlprPendDataPopulate() [status: %#x]\n",
-                    status);
-      }
-   }
+			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+				DPFLTR_ERROR_LEVEL,
+				" !!!! KrnlHlprPendDataPopulate() [status: %#x]\n",
+				status);
+		}
+	}
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprPendDataPurge(pPendData);
+	if (status != STATUS_SUCCESS)
+		KrnlHlprPendDataPurge(pPendData);
 
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprPendDataPopulate() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprPendDataPopulate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }
 
 /**
  @kernel_helper_function="KrnlHlprPendDataCreate"
- 
+
    Purpose:  Allocates and populates a PEND_DATA object with the completionContext.             <br>
-                                                                                                <br>
+																								<br>
    Notes:                                                                                       <br>
-                                                                                                <br>
+																								<br>
    MSDN_Ref:                                                                                    <br>
 */
 _At_(*ppPendData, _Pre_ _Null_)
@@ -348,64 +348,64 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprPendDataCreate(_Outptr_ PEND_DATA** ppPendData,
-                                _In_ const FWPS_INCOMING_VALUES* pClassifyValues,
-                                _In_ const FWPS_INCOMING_METADATA_VALUES* pMetadata,
-                                _In_opt_ NET_BUFFER_LIST* pNBL,
-                                _In_ const FWPS_FILTER* pFilter,
-                                 _In_opt_ VOID* pClassifyContext,                         /* 0 */
-                                 _In_opt_ FWPS_CLASSIFY_OUT* pClassifyOut)                /* 0 */
+NTSTATUS KrnlHlprPendDataCreate(_Outptr_ PEND_DATA * *ppPendData,
+	_In_ const FWPS_INCOMING_VALUES * pClassifyValues,
+	_In_ const FWPS_INCOMING_METADATA_VALUES * pMetadata,
+	_In_opt_ NET_BUFFER_LIST * pNBL,
+	_In_ const FWPS_FILTER * pFilter,
+	_In_opt_ VOID * pClassifyContext,                         /* 0 */
+	_In_opt_ FWPS_CLASSIFY_OUT * pClassifyOut)                /* 0 */
 
 
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprPendDataCreate()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprPendDataCreate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppPendData);
-   NT_ASSERT(pClassifyValues);
-   NT_ASSERT(pMetadata);
-   NT_ASSERT(pFilter);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(ppPendData);
+	NT_ASSERT(pClassifyValues);
+	NT_ASSERT(pMetadata);
+	NT_ASSERT(pFilter);
 
-   HLPR_NEW(*ppPendData,
-            PEND_DATA,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppPendData,
-                              status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-   status = KrnlHlprPendDataPopulate(*ppPendData,
-                                     pClassifyValues,
-                                     pMetadata,
-                                     pNBL,
-                                     pFilter,
-                                     pClassifyContext,
-                                     pClassifyOut);
+	HLPR_NEW(*ppPendData,
+		PEND_DATA,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppPendData,
+		status);
 
-   HLPR_BAIL_LABEL:
+	status = KrnlHlprPendDataPopulate(*ppPendData,
+		pClassifyValues,
+		pMetadata,
+		pNBL,
+		pFilter,
+		pClassifyContext,
+		pClassifyOut);
+
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// *ppPendData initialized with calls to HLPR_NEW & KrnlHlprPendDataPopulate 
 
-   if(status != STATUS_SUCCESS &&
-      *ppPendData)
-      KrnlHlprPendDataDestroy(ppPendData);
+	if (status != STATUS_SUCCESS &&
+		*ppPendData)
+		KrnlHlprPendDataDestroy(ppPendData);
 
 #pragma warning(pop)
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprPendDataCreate() [status: %#x]\n",
-              status);
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprPendDataCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
-   
-   return status;
+
+	return status;
 }

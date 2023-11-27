@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Copyright (c) 2014 Microsoft Corporation.  All Rights Reserved.
 //
@@ -61,104 +61,104 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Success_(*ppCompletionData == 0)
 VOID BasicStreamInjectionCompletionDataDestroy(_Inout_ BASIC_STREAM_INJECTION_COMPLETION_DATA** ppCompletionData,
-                                               _In_ BOOLEAN override)                                             /* FALSE */
+	_In_ BOOLEAN override)                                             /* FALSE */
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> BasicStreamInjectionCompletionDataDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> BasicStreamInjectionCompletionDataDestroy()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppCompletionData);
-   NT_ASSERT(*ppCompletionData);
 
-   BASIC_STREAM_INJECTION_COMPLETION_DATA* pCompletionData = *ppCompletionData;
-   KIRQL                                   originalIRQL    = PASSIVE_LEVEL;
+	NT_ASSERT(ppCompletionData);
+	NT_ASSERT(*ppCompletionData);
 
-   KeAcquireSpinLock(&(pCompletionData->spinLock),
-                     &originalIRQL);
+	BASIC_STREAM_INJECTION_COMPLETION_DATA* pCompletionData = *ppCompletionData;
+	KIRQL                                   originalIRQL = PASSIVE_LEVEL;
 
-   pCompletionData->refCount--;
+	KeAcquireSpinLock(&(pCompletionData->spinLock),
+		&originalIRQL);
 
-   if(pCompletionData->pClassifyData)
-   {
-      if(!(pCompletionData->performedInline))
-         KrnlHlprClassifyDataDestroyLocalCopy(&(pCompletionData->pClassifyData));
-      else
-      {
-         HLPR_DELETE(pCompletionData->pClassifyData,
-                     WFPSAMPLER_CALLOUT_DRIVER_TAG);
-      }
-   }
+	pCompletionData->refCount--;
 
-   if(pCompletionData->pInjectionData)
-      KrnlHlprInjectionDataDestroy(&(pCompletionData->pInjectionData));
+	if (pCompletionData->pClassifyData)
+	{
+		if (!(pCompletionData->performedInline))
+			KrnlHlprClassifyDataDestroyLocalCopy(&(pCompletionData->pClassifyData));
+		else
+		{
+			HLPR_DELETE(pCompletionData->pClassifyData,
+				WFPSAMPLER_CALLOUT_DRIVER_TAG);
+		}
+	}
 
-   KeReleaseSpinLock(&(pCompletionData->spinLock),
-                     originalIRQL);
+	if (pCompletionData->pInjectionData)
+		KrnlHlprInjectionDataDestroy(&(pCompletionData->pInjectionData));
 
-   /// Stream indicated each individual NBL from a chain, so wait until the last NBL is indicated 
-   /// before removing the completionData.
-   if(pCompletionData->refCount == 0 ||
-      override)
-   {
-      HLPR_DELETE(*ppCompletionData,
-                  WFPSAMPLER_CALLOUT_DRIVER_TAG);
-   }
+	KeReleaseSpinLock(&(pCompletionData->spinLock),
+		originalIRQL);
+
+	/// Stream indicated each individual NBL from a chain, so wait until the last NBL is indicated 
+	/// before removing the completionData.
+	if (pCompletionData->refCount == 0 ||
+		override)
+	{
+		HLPR_DELETE(*ppCompletionData,
+			WFPSAMPLER_CALLOUT_DRIVER_TAG);
+	}
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- BasicStreamInjectionCompletionDataDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- BasicStreamInjectionCompletionDataDestroy()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }
 
 _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 VOID NTAPI CompleteBasicStreamInjection(_In_ VOID* pContext,
-                                        _Inout_ NET_BUFFER_LIST* pNetBufferList,
-                                        _In_ BOOLEAN dispatchLevel)
+	_Inout_ NET_BUFFER_LIST* pNetBufferList,
+	_In_ BOOLEAN dispatchLevel)
 {
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> CompleteBasicStreamInjection()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> CompleteBasicStreamInjection()\n");
 
 #endif /// DBG
-   
-   UNREFERENCED_PARAMETER(dispatchLevel);
 
-   NT_ASSERT(pContext);
-   NT_ASSERT(pNetBufferList);
-   NT_ASSERT(NT_SUCCESS(pNetBufferList->Status) ||
-             pNetBufferList->Status == STATUS_CONNECTION_ABORTED);
+	UNREFERENCED_PARAMETER(dispatchLevel);
 
-   if(pNetBufferList->Status != STATUS_SUCCESS)
-      DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                 DPFLTR_ERROR_LEVEL,
-                 " !!!! CompleteBasicStreamInjection() [status: %#x]\n",
-                 pNetBufferList->Status);
+	NT_ASSERT(pContext);
+	NT_ASSERT(pNetBufferList);
+	NT_ASSERT(NT_SUCCESS(pNetBufferList->Status) ||
+		pNetBufferList->Status == STATUS_CONNECTION_ABORTED);
 
-   FwpsFreeCloneNetBufferList(pNetBufferList,
-                              0);
+	if (pNetBufferList->Status != STATUS_SUCCESS)
+		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+			DPFLTR_ERROR_LEVEL,
+			" !!!! CompleteBasicStreamInjection() [status: %#x]\n",
+			pNetBufferList->Status);
 
-   BasicStreamInjectionCompletionDataDestroy((BASIC_STREAM_INJECTION_COMPLETION_DATA**)&pContext);
+	FwpsFreeCloneNetBufferList(pNetBufferList,
+		0);
+
+	BasicStreamInjectionCompletionDataDestroy((BASIC_STREAM_INJECTION_COMPLETION_DATA**)&pContext);
 
 #if DBG
-   
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- CompleteBasicStreamInjection()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- CompleteBasicStreamInjection()\n");
 
 #endif /// DBG
-   
-   return;
+
+	return;
 }

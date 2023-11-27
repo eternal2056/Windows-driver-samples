@@ -1,4 +1,4 @@
-////////////////////////////////////////////////////////////////////////////////////////////////////
+﻿////////////////////////////////////////////////////////////////////////////////////////////////////
 //
 //   Copyright (c) 2014 Microsoft Corporation.  All Rights Reserved.
 //
@@ -48,55 +48,55 @@ _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Success_(return == STATUS_SUCCESS)
-inline NTSTATUS KrnlHlprFlowContextPurge(_Inout_ FLOW_CONTEXT* pFlowContext)
+inline NTSTATUS KrnlHlprFlowContextPurge(_Inout_ FLOW_CONTEXT * pFlowContext)
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprFlowContextPurge()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprFlowContextPurge()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pFlowContext);
 
-   NTSTATUS status = STATUS_SUCCESS;   
+	NT_ASSERT(pFlowContext);
 
-   status = FwpsFlowRemoveContext(pFlowContext->flowID,
-                                  pFlowContext->layerID,
-                                  pFlowContext->calloutID);
-   if(status != STATUS_SUCCESS)
-   {
-      if(status != STATUS_UNSUCCESSFUL)
-      {
-         DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                    DPFLTR_ERROR_LEVEL,
-                    " !!!! KrnlHlprFlowContextPurge : FwpsFlowRemoveContext() [status: %#x]\n",
-                    status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-          HLPR_BAIL;
-      }
+	status = FwpsFlowRemoveContext(pFlowContext->flowID,
+		pFlowContext->layerID,
+		pFlowContext->calloutID);
+	if (status != STATUS_SUCCESS)
+	{
+		if (status != STATUS_UNSUCCESSFUL)
+		{
+			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+				DPFLTR_ERROR_LEVEL,
+				" !!!! KrnlHlprFlowContextPurge : FwpsFlowRemoveContext() [status: %#x]\n",
+				status);
 
-      /// no context currently associated with the flow, so it should be safe to delete
-   }
+			HLPR_BAIL;
+		}
 
-   HLPR_DELETE(pFlowContext->pContext,
-               WFPSAMPLER_SYSLIB_TAG);
+		/// no context currently associated with the flow, so it should be safe to delete
+	}
 
-   RtlZeroMemory(pFlowContext,
-                 sizeof(FLOW_CONTEXT));
+	HLPR_DELETE(pFlowContext->pContext,
+		WFPSAMPLER_SYSLIB_TAG);
 
-   HLPR_BAIL_LABEL:
+	RtlZeroMemory(pFlowContext,
+		sizeof(FLOW_CONTEXT));
+
+HLPR_BAIL_LABEL:
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprFlowContextPurge()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprFlowContextPurge()\n");
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 _At_(*ppFlowContext, _Pre_ _Notnull_)
@@ -105,40 +105,40 @@ _IRQL_requires_min_(PASSIVE_LEVEL)
 _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Success_(return == STATUS_SUCCESS && *ppFlowContext == 0)
-inline NTSTATUS KrnlHlprFlowContextDestroy(_Inout_ FLOW_CONTEXT** ppFlowContext)
+inline NTSTATUS KrnlHlprFlowContextDestroy(_Inout_ FLOW_CONTEXT * *ppFlowContext)
 {
 #if DBG
-      
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprFlowContextDestroy()\n");
+
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprFlowContextDestroy()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(ppFlowContext);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(ppFlowContext);
 
-   if(*ppFlowContext)
-   {
-      status = KrnlHlprFlowContextPurge(*ppFlowContext);
-      HLPR_BAIL_ON_FAILURE(status);
+	NTSTATUS status = STATUS_SUCCESS;
 
-      HLPR_DELETE(*ppFlowContext,
-                  WFPSAMPLER_SYSLIB_TAG);
-   }
+	if (*ppFlowContext)
+	{
+		status = KrnlHlprFlowContextPurge(*ppFlowContext);
+		HLPR_BAIL_ON_FAILURE(status);
 
-   HLPR_BAIL_LABEL:
+		HLPR_DELETE(*ppFlowContext,
+			WFPSAMPLER_SYSLIB_TAG);
+	}
+
+HLPR_BAIL_LABEL:
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprFlowContextDestroy()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprFlowContextDestroy()\n");
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 _IRQL_requires_min_(PASSIVE_LEVEL)
@@ -146,179 +146,179 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprFlowContextPopulate(_Inout_ FLOW_CONTEXT* pFlowContext,
-                                     _In_ UINT64 flowHandle,
-                                     _In_ UINT16 layerID,
-                                     _In_ UINT32 calloutID,
-                                     _In_ UINT8 contextType,                /* CONTEXT_TYPE_DEFAULT */
-                                     _In_opt_ const VOID* pProviderContext) /* 0 */
+NTSTATUS KrnlHlprFlowContextPopulate(_Inout_ FLOW_CONTEXT * pFlowContext,
+	_In_ UINT64 flowHandle,
+	_In_ UINT16 layerID,
+	_In_ UINT32 calloutID,
+	_In_ UINT8 contextType,                /* CONTEXT_TYPE_DEFAULT */
+	_In_opt_ const VOID * pProviderContext) /* 0 */
 
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprFlowContextPopulate()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprFlowContextPopulate()\n");
 
 #endif /// DBG
-   
-   NT_ASSERT(pFlowContext);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NT_ASSERT(pFlowContext);
 
-   pFlowContext->flowID      = flowHandle;
-   pFlowContext->layerID     = layerID;
-   pFlowContext->calloutID   = calloutID;
-   pFlowContext->contextType = contextType;
+	NTSTATUS status = STATUS_SUCCESS;
 
-   if(pFlowContext->contextType == CONTEXT_TYPE_DEFAULT ||
-      pFlowContext->contextType >= CONTEXT_TYPE_MAX)
-   {
-      if(layerID == FWPS_LAYER_STREAM_V4 ||
-         layerID == FWPS_LAYER_STREAM_V6)
-         pFlowContext->contextType = CONTEXT_TYPE_STREAM;
+	pFlowContext->flowID = flowHandle;
+	pFlowContext->layerID = layerID;
+	pFlowContext->calloutID = calloutID;
+	pFlowContext->contextType = contextType;
+
+	if (pFlowContext->contextType == CONTEXT_TYPE_DEFAULT ||
+		pFlowContext->contextType >= CONTEXT_TYPE_MAX)
+	{
+		if (layerID == FWPS_LAYER_STREAM_V4 ||
+			layerID == FWPS_LAYER_STREAM_V6)
+			pFlowContext->contextType = CONTEXT_TYPE_STREAM;
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)
 
-      else if(layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
-              layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
-         pFlowContext->contextType = CONTEXT_TYPE_ALE_ENDPOINT_CLOSURE;
+		else if (layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
+			layerID == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
+			pFlowContext->contextType = CONTEXT_TYPE_ALE_ENDPOINT_CLOSURE;
 
 #endif /// (NTDDI_VERSION >= NTDDI_WIN7)
 
-      else
-      {
-         status = STATUS_INVALID_PARAMETER;
+		else
+		{
+			status = STATUS_INVALID_PARAMETER;
 
-         HLPR_BAIL;
-      }
-   }
+			HLPR_BAIL;
+		}
+	}
 
-   switch(pFlowContext->contextType)
-   {
-      case CONTEXT_TYPE_STREAM:
-      {
-         HLPR_NEW(pFlowContext->pStreamContext,
-                  STREAM_CONTEXT,
-                  WFPSAMPLER_SYSLIB_TAG);
-         HLPR_BAIL_ON_ALLOC_FAILURE(pFlowContext->pStreamContext,
-                                    status);
-      
-         KeInitializeSpinLock(&(pFlowContext->pStreamContext->serializationList.spinLock));
+	switch (pFlowContext->contextType)
+	{
+	case CONTEXT_TYPE_STREAM:
+	{
+		HLPR_NEW(pFlowContext->pStreamContext,
+			STREAM_CONTEXT,
+			WFPSAMPLER_SYSLIB_TAG);
+		HLPR_BAIL_ON_ALLOC_FAILURE(pFlowContext->pStreamContext,
+			status);
 
-         status = WdfWaitLockCreate(WDF_NO_OBJECT_ATTRIBUTES,
-                                    &(pFlowContext->pStreamContext->serializationList.waitLock));
-         if(status != STATUS_SUCCESS)
-         {
-            DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                       DPFLTR_ERROR_LEVEL,
-                       " !!!! KrnlHlprFlowContextCreate : WdfWaitLockCreate() [status: %#x]\n",
-                       status);
-         
-            HLPR_BAIL;
-         }
+		KeInitializeSpinLock(&(pFlowContext->pStreamContext->serializationList.spinLock));
 
-         InitializeListHead(&(pFlowContext->pStreamContext->serializationList.listHead));
+		status = WdfWaitLockCreate(WDF_NO_OBJECT_ATTRIBUTES,
+			&(pFlowContext->pStreamContext->serializationList.waitLock));
+		if (status != STATUS_SUCCESS)
+		{
+			DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+				DPFLTR_ERROR_LEVEL,
+				" !!!! KrnlHlprFlowContextCreate : WdfWaitLockCreate() [status: %#x]\n",
+				status);
 
-         pFlowContext->pStreamContext->processorID = KeGetCurrentProcessorNumber();
+			HLPR_BAIL;
+		}
+
+		InitializeListHead(&(pFlowContext->pStreamContext->serializationList.listHead));
+
+		pFlowContext->pStreamContext->processorID = KeGetCurrentProcessorNumber();
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)
 
-         if(pProviderContext)
-         {
-            PC_FLOW_ASSOCIATION_DATA* pFlowAssociationData = (PC_FLOW_ASSOCIATION_DATA*)pProviderContext;
+		if (pProviderContext)
+		{
+			PC_FLOW_ASSOCIATION_DATA* pFlowAssociationData = (PC_FLOW_ASSOCIATION_DATA*)pProviderContext;
 
-            for(UINT32 aecIndex = 0;
-                aecIndex < pFlowAssociationData->itemCount;
-                aecIndex++)
-            {
-               if(pFlowAssociationData->pLayerIDs[aecIndex] == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
-                  pFlowAssociationData->pLayerIDs[aecIndex] == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
-               {
-                  pFlowContext->aecLayerID   = pFlowAssociationData->pLayerIDs[aecIndex];
-                  pFlowContext->aecCalloutID = pFlowAssociationData->pCalloutIDs[aecIndex];
+			for (UINT32 aecIndex = 0;
+				aecIndex < pFlowAssociationData->itemCount;
+				aecIndex++)
+			{
+				if (pFlowAssociationData->pLayerIDs[aecIndex] == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V4 ||
+					pFlowAssociationData->pLayerIDs[aecIndex] == FWPS_LAYER_ALE_ENDPOINT_CLOSURE_V6)
+				{
+					pFlowContext->aecLayerID = pFlowAssociationData->pLayerIDs[aecIndex];
+					pFlowContext->aecCalloutID = pFlowAssociationData->pCalloutIDs[aecIndex];
 
-                  break;
-               }
-            }
-         }
+					break;
+				}
+			}
+		}
 
 #else
 
-         UNREFERENCED_PARAMETER(pProviderContext);
+		UNREFERENCED_PARAMETER(pProviderContext);
 
 #endif /// (NTDDI_VERSION >= NTDDI_WIN7)
 
-         break;
-      }
+		break;
+	}
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)
 
-      case CONTEXT_TYPE_ALE_ENDPOINT_CLOSURE:
-      {
-         HLPR_NEW(pFlowContext->pALEEndpointClosureContext,
-                  ALE_ENDPOINT_CLOSURE_CONTEXT,
-                  WFPSAMPLER_SYSLIB_TAG);
-         HLPR_BAIL_ON_ALLOC_FAILURE(pFlowContext->pALEEndpointClosureContext,
-                                    status);
+	case CONTEXT_TYPE_ALE_ENDPOINT_CLOSURE:
+	{
+		HLPR_NEW(pFlowContext->pALEEndpointClosureContext,
+			ALE_ENDPOINT_CLOSURE_CONTEXT,
+			WFPSAMPLER_SYSLIB_TAG);
+		HLPR_BAIL_ON_ALLOC_FAILURE(pFlowContext->pALEEndpointClosureContext,
+			status);
 
-         KeInitializeSpinLock(&(pFlowContext->pALEEndpointClosureContext->spinLock));
+		KeInitializeSpinLock(&(pFlowContext->pALEEndpointClosureContext->spinLock));
 
-         if(pProviderContext)
-         {
-            PC_FLOW_ASSOCIATION_DATA* pFlowAssociationData = (PC_FLOW_ASSOCIATION_DATA*)pProviderContext;
+		if (pProviderContext)
+		{
+			PC_FLOW_ASSOCIATION_DATA* pFlowAssociationData = (PC_FLOW_ASSOCIATION_DATA*)pProviderContext;
 
-            for(UINT32 injectionIndex = 0;
-                injectionIndex < pFlowAssociationData->itemCount;
-                injectionIndex++)
-            {
-               if(pFlowAssociationData->pLayerIDs[injectionIndex] == FWPS_LAYER_STREAM_V4 ||
-                  pFlowAssociationData->pLayerIDs[injectionIndex] == FWPS_LAYER_STREAM_V6)
-               {
-                  pFlowContext->injectionLayerID   = pFlowAssociationData->pLayerIDs[injectionIndex];
-                  pFlowContext->injectionCalloutID = pFlowAssociationData->pCalloutIDs[injectionIndex];
+			for (UINT32 injectionIndex = 0;
+				injectionIndex < pFlowAssociationData->itemCount;
+				injectionIndex++)
+			{
+				if (pFlowAssociationData->pLayerIDs[injectionIndex] == FWPS_LAYER_STREAM_V4 ||
+					pFlowAssociationData->pLayerIDs[injectionIndex] == FWPS_LAYER_STREAM_V6)
+				{
+					pFlowContext->injectionLayerID = pFlowAssociationData->pLayerIDs[injectionIndex];
+					pFlowContext->injectionCalloutID = pFlowAssociationData->pCalloutIDs[injectionIndex];
 
-                  break;
-               }
-            }
-         }
+					break;
+				}
+			}
+		}
 
-         break;
-      }
+		break;
+	}
 
 #endif /// (NTDDI_VERSION >= NTDDI_WIN7)
 
-   }
+	}
 
-   status = FwpsFlowAssociateContext(pFlowContext->flowID,
-                                     pFlowContext->layerID,
-                                     pFlowContext->calloutID,
-                                     (UINT64)pFlowContext);
-   if(status != STATUS_SUCCESS)
-   {
-      DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-                 DPFLTR_ERROR_LEVEL,
-                 " !!!! KrnlHlprFlowContextCreate : FwpsFlowAssociateContext() [status: %#x]\n",
-                 status);
+	status = FwpsFlowAssociateContext(pFlowContext->flowID,
+		pFlowContext->layerID,
+		pFlowContext->calloutID,
+		(UINT64)pFlowContext);
+	if (status != STATUS_SUCCESS)
+	{
+		DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+			DPFLTR_ERROR_LEVEL,
+			" !!!! KrnlHlprFlowContextCreate : FwpsFlowAssociateContext() [status: %#x]\n",
+			status);
 
-      HLPR_BAIL;
-   }
+		HLPR_BAIL;
+	}
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
-   if(status != STATUS_SUCCESS)
-      KrnlHlprFlowContextPurge(pFlowContext);
+	if (status != STATUS_SUCCESS)
+		KrnlHlprFlowContextPurge(pFlowContext);
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprFlowContextPopulate() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprFlowContextPopulate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }
 
 _At_(*ppFlowContext, _Pre_ _Null_)
@@ -329,57 +329,57 @@ _IRQL_requires_max_(DISPATCH_LEVEL)
 _IRQL_requires_same_
 _Check_return_
 _Success_(return == STATUS_SUCCESS)
-NTSTATUS KrnlHlprFlowContextCreate(_Outptr_ FLOW_CONTEXT** ppFlowContext,
-                                   _In_ UINT64 flowHandle,
-                                   _In_ UINT16 layerID,
-                                   _In_ UINT32 calloutID,
-                                   _In_ UINT8 contextType,                /* CONTEXT_TYPE_DEFAULT */
-                                   _In_opt_ const VOID* pProviderContext) /* 0 */
+NTSTATUS KrnlHlprFlowContextCreate(_Outptr_ FLOW_CONTEXT * *ppFlowContext,
+	_In_ UINT64 flowHandle,
+	_In_ UINT16 layerID,
+	_In_ UINT32 calloutID,
+	_In_ UINT8 contextType,                /* CONTEXT_TYPE_DEFAULT */
+	_In_opt_ const VOID * pProviderContext) /* 0 */
 {
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " ---> KrnlHlprFlowContextCreate()\n");
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" ---> KrnlHlprFlowContextCreate()\n");
 
 #endif /// DBG
 
-   NT_ASSERT(ppFlowContext);
+	NT_ASSERT(ppFlowContext);
 
-   NTSTATUS status = STATUS_SUCCESS;
+	NTSTATUS status = STATUS_SUCCESS;
 
-   HLPR_NEW(*ppFlowContext,
-            FLOW_CONTEXT,
-            WFPSAMPLER_SYSLIB_TAG);
-   HLPR_BAIL_ON_ALLOC_FAILURE(*ppFlowContext,
-                              status);
+	HLPR_NEW(*ppFlowContext,
+		FLOW_CONTEXT,
+		WFPSAMPLER_SYSLIB_TAG);
+	HLPR_BAIL_ON_ALLOC_FAILURE(*ppFlowContext,
+		status);
 
-   status = KrnlHlprFlowContextPopulate(*ppFlowContext,
-                                        flowHandle,
-                                        layerID,
-                                        calloutID,
-                                        contextType,
-                                        pProviderContext);
+	status = KrnlHlprFlowContextPopulate(*ppFlowContext,
+		flowHandle,
+		layerID,
+		calloutID,
+		contextType,
+		pProviderContext);
 
-   HLPR_BAIL_LABEL:
+HLPR_BAIL_LABEL:
 
 #pragma warning(push)
 #pragma warning(disable: 6001) /// *ppFlowContext initialized with call to HLPR_NEW & KrnlHlprFlowContextPopulate
 
-   if(status != STATUS_SUCCESS &&
-      *ppFlowContext)
-      KrnlHlprFlowContextDestroy(ppFlowContext);
+	if (status != STATUS_SUCCESS &&
+		*ppFlowContext)
+		KrnlHlprFlowContextDestroy(ppFlowContext);
 
 #pragma warning(pop)
 
 #if DBG
 
-   DbgPrintEx(DPFLTR_IHVNETWORK_ID,
-              DPFLTR_INFO_LEVEL,
-              " <--- KrnlHlprFlowContextCreate() [status: %#x]\n",
-              status);
+	DbgPrintEx(DPFLTR_IHVNETWORK_ID,
+		DPFLTR_ERROR_LEVEL,
+		" <--- KrnlHlprFlowContextCreate() [status: %#x]\n",
+		status);
 
 #endif /// DBG
 
-   return status;
+	return status;
 }

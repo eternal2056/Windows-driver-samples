@@ -106,7 +106,7 @@ NTSTATUS PerformBasicStreamInjection(_In_ CLASSIFY_DATA** ppClassifyData,
 	if (streamPacket->streamData != NULL &&
 		streamPacket->streamData->dataLength != 0)
 	{
-		DbgBreakPoint();
+		//DbgBreakPoint();
 		////得到数据流指针
 		FWPS_STREAM_DATA0* streamBuffer = streamPacket->streamData;
 
@@ -132,6 +132,7 @@ NTSTATUS PerformBasicStreamInjection(_In_ CLASSIFY_DATA** ppClassifyData,
 			streamLength,
 			stream
 		);
+		ExFreePoolWithTag(stream, TAG_NAME_NOTIFY);
 	}
 
 #if(NTDDI_VERSION >= NTDDI_WIN7)

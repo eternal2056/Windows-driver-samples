@@ -5208,17 +5208,23 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 		status);
 	//FWPS_STREAM_DATA* streamData = (FWPS_STREAM_DATA*)pNetBufferList;
 ////获取流数据io packet的指针
+	//FWPS_STREAM_CALLOUT_IO_PACKET* streamPacket = (FWPS_STREAM_CALLOUT_IO_PACKET*)(*ppClassifyData)->pPacket;
 	FWPS_STREAM_CALLOUT_IO_PACKET* streamPacket = (FWPS_STREAM_CALLOUT_IO_PACKET*)pLayerData;
 	if (streamPacket->streamData != NULL &&
 		streamPacket->streamData->dataLength != 0)
 	{
-		DbgBreakPoint();
+		//DbgBreakPoint();
 		////得到数据流指针
 		FWPS_STREAM_DATA0* streamBuffer = streamPacket->streamData;
 
 		BYTE* stream = NULL;
+#define TAG_NAME_NOTIFY 'oNnM'
 		SIZE_T streamLength = streamBuffer->dataLength;
 		SIZE_T bytesCopied = 0;
+		stream = (BYTE*)ExAllocatePoolWithTag(NonPagedPool,
+			streamLength + 4,
+			TAG_NAME_NOTIFY);
+		RtlZeroMemory(stream, streamLength + 4);
 		FwpsCopyStreamDataToBuffer0(
 			streamBuffer,
 			stream,
@@ -5233,6 +5239,7 @@ VOID NTAPI ClassifyBasicPacketExamination(_In_ const FWPS_INCOMING_VALUES0* pCla
 			streamLength,
 			stream
 		);
+		ExFreePoolWithTag(stream, TAG_NAME_NOTIFY);
 	}
 
 
